@@ -283,7 +283,7 @@ To do so, go to :menuselection:`Accounting --> Reporting --> France --> FEC`.
 French Accounting Reports
 =========================
 
-If you have installed the French Accounting, you will have access to some accounting reports specific to France:
+If you have installed the French Accounting, you will have access to some accounting reports specific to France: 
 
 * Bilan comptable
 * Compte de résultats
