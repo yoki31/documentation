@@ -30,11 +30,31 @@ to your database, please refer to the :doc:`IoT connect </applications/productiv
 Configure the protocol
 ----------------------
 
-Push on the . button of the terminal, then
+Push on the `.` button of the terminal, then
 :menuselection:`3 --> stop --> 3 --> 0 --> 9 --> Technician password --> 4 --> 2`
 
-Push “MODIFIER” and choose CTEP for the “PROTOCOLE ECR”. OK.
-Then press directly again OK (physical button) on three next screens “CTEP TICKET CAISSE”, “LARGEUR TICKET CAISSE”, and “JEU DE CARACTERES ISO”
+Push “MODIFIER” and choose CTEP for the “PROTOCOLE ECR”. `OK`.
+Then press directly again `OK` (physical button) on three next screens “CTEP TICKET CAISSE”, “LARGEUR TICKET CAISSE”, and “JEU DE CARACTERES ISO”
+
+:menuselection:`STOP --> STOP --> STOP` and then it will automatically restart
+
+Set the IP address
+------------------
+
+Push on the `.` button of the terminal, then
+:menuselection:`3 --> stop --> 3 --> 0 --> 9 --> Technician password --> 4 --> 9`
+
+Click “MODIFIER” and choose TCP/IP for “CONFIGURATION CAISSE”. `OK`.
+Click again `OK` on the next screen “TCP CONFIGURATION CLIENT”. 
+And now the tricky part (one screen is one sequence of the IP address of the IoT Box that you can find in the IoT Box app in the customer’s database)
+
+.. image:: media/worldline004.png
+   :align: center
+
+For “NOM DE L’HOTE”, type “10” > `OK` > Type “30” > `OK` > Type “19” > `OK` > Type “4” > `OK` > (leave empty) > `OK`
+
+For “NUMERO DE PORT”, enter “9001” > `OK`
+“PROTOCOLE ECR SSL NON” > `OK`
 
 :menuselection:`STOP --> STOP --> STOP` and then it will automatically restart
 
