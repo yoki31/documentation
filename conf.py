@@ -53,18 +53,23 @@ add_function_parentheses = True
 
 #=== Extensions configuration ===#
 
+ultimate_replacements = {}
+
 # Add extensions directory to PYTHONPATH
 extension_dir = Path('extensions')
 sys.path.insert(0, str(extension_dir.absolute()))
 
 # Search for the directory of odoo sources to know whether autodoc should be used on the dev doc
 odoo_dir = Path('odoo')
+ultimate_replacements['{ODOO_RELPATH}'] = '/../odoo'
 odoo_dir_in_path = False
 if not odoo_dir.is_dir():
     parent_odoo_dir = Path('../odoo')
     if parent_odoo_dir.is_dir():
         _logger.info('Using parent dir to find odoo sources')
         odoo_dir = parent_odoo_dir
+        ultimate_replacements['{ODOO_RELPATH}'] = '/../../odoo'
+ultimate_replacements['{ODOO_ABSPATH}'] = str(odoo_dir.absolute())
 if not odoo_dir.is_dir():
     _logger.warning(
         f"Could not find Odoo sources directory at {odoo_dir.absolute()}.\n"
@@ -246,6 +251,13 @@ latex_logo = 'static/img/odoo_logo.png'
 # If true, show URL addresses after external links.
 latex_show_urls = 'True'
 
+# https://github.com/sphinx-doc/sphinx/issues/4054#issuecomment-329097229
+def ultimateReplace(app, docname, source):
+    result = source[0]
+    for key in app.config.ultimate_replacements:
+        result = result.replace(key, app.config.ultimate_replacements[key])
+    source[0] = result
+
 
 def setup(app):
     # Generate all alternate URLs for each document
@@ -254,6 +266,8 @@ def setup(app):
     app.add_config_value('versions', None, 'env')
     app.add_config_value('languages', None, 'env')
     app.add_config_value('is_remote_build', None, 'env')  # Whether the build is remotely deployed
+    app.add_config_value('ultimate_replacements', {}, 'env')
+    app.connect('source-read', ultimateReplace)
 
     app.add_lexer('json', JsonLexer)
     app.add_lexer('xml', XmlLexer)
