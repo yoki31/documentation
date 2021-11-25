@@ -74,6 +74,8 @@ if not odoo_dir.is_dir():
     )
 else:
     sys.path.insert(0, str(odoo_dir.absolute()))
+    import odoo.addons
+    odoo.addons.__path__ += [str(odoo_dir.absolute()) + '/addons']
     if sys.version_info < (3, 7) and sys.version_info > (3, 6):
         # running odoo needs python 3.7 min but monkey patch version_info to be
         # able to build the doc in python 3.6
@@ -98,6 +100,7 @@ else:
 extensions = [
     # Parse Python docstrings (autodoc, automodule, autoattribute directives)
     'sphinx.ext.autodoc' if odoo_dir_in_path else 'autodoc_placeholder',
+    'autodoc_field',
 
     # Link sources in other projects (used to build the reference doc)
     'sphinx.ext.intersphinx',
