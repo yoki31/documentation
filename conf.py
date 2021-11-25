@@ -119,7 +119,7 @@ extensions = [
     # Youtube and Vimeo videos integration (youtube, vimeo directives)
     'embedded_video',
 
-    'exercise_admonition',
+    'custom_admonition',
 
     # Redirection generator
     'redirects',
