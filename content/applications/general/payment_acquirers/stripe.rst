@@ -16,21 +16,47 @@ Credentials tab
 
 Odoo needs your **API Credentials** to connect with your Stripe account, which comprise:
 
-- Publishable Key: The key solely used to identify the account with Stripe.
-- Secret Key: The key to sign the merchant account with Stripe.
-- Webhook Signing Secret: If a webhook is enabled on your Stripe account
-  (:menuselection:`Developers --> webhooks`), this signing secret must be set to authenticate the
-  messages sent from Stripe to Odoo.
-
-To retrieve the publishable and secret keys, log into your Stripe dashboard and go to
-:menuselection:`Developers --> API Keys --> Standard Keys`
+- :ref:`Publishable Key <stripe/api_keys>`: The key solely used to identify the account with Stripe.
+- :ref:`Secret Key <stripe/api_keys>`: The key to sign the merchant account with Stripe.
+- :ref:`Webhook Signing Secret <stripe/webhook>`: When you enabled your webhook on your Stripe
+  account, this signing secret must be set to authenticate the messages sent from Stripe to Odoo.
 
 .. important::
    If you are trying Stripe as a test, in the **test mode**, change the **State** to *Test
    Mode*. We recommend doing this on a test Odoo database, rather than on your main database.
 
+.. _stripe/api_keys:
+
+Publishable and Secret keys
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To retrieve the publishable and secret keys, follow this `link to your api keys
+<https://dashboard.stripe.com/account/apikeys>`_, or log into your Stripe dashboard and go to
+:menuselection:`Developers --> API Keys --> Standard Keys`.
+
+.. _stripe/webhook:
+
+Webhook Signing Secret
+~~~~~~~~~~~~~~~~~~~~~~
+
+To retrieve the webhook signing secret, you'll first need to create this webhook. To do so, follow
+this `link to your webhooks <https://dashboard.stripe.com/webhooks>`_, or log into your Stripe
+dashboard and go to :menuselection:`Developers --> Webhooks`.
+
+Then, click on **Add endpoint** in your **Hosted endpoints**. A form opens, where you'll need to add
+two informations:
+
+- In the **Endpoint URL**, enter ``https://yourcompany.odoo.com/payment/stripe/webhook`` after
+  replacing *yourcompany.odoo.com* by your address.
+- At the end of the form, you can **Select events** to listen to. Click on it, and search for
+  **checkout.session.completed**. Add it. It is possible to select other events but they are
+  currently not processed by Odoo.
+
+When you click on **Add endpoint**, your Webhook will be configured. You can then click on
+**reveal** to see your signing secret.
+
 Enable local payment methods
-****************************
+----------------------------
 
 Local payment methods are payment methods that are only available for certain merchants and
 customers countries and currencies.
