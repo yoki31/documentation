@@ -164,6 +164,10 @@ Reference List
      - `priority`
      - `selection`
      - description...
+   * - :ref:`ProgressBarField <frontend/fields/progress_bar_field>`
+     - `priority`
+     - `integer`
+     - display a progress bar
    * - :ref:`RadioField <frontend/fields/radio_field>`
      - `radio`
      - `many2one`, `selection`
@@ -384,6 +388,40 @@ PriorityField
 - Technical name: `priority`
 - Supported types: `selection`
 
+.. _frontend/fields/progress_bar_field:
+
+ProgressBarField
+----------------
+
+- Location: `@web/fields/progress_bar_field`
+- Technical name: `priority`
+- Supported types: `selection`
+
+The `ProgressBarField` component indicates a progress as a bar. It is a more visual way to
+indicate a progress than a simple percentage by adding this visual progress bar next to it.
+In edit mode, you can edit the input value, or drag the progress bar directly.
+
+It requires the following options:
+
+.. list-table::
+   :widths: 20 20 60
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - `editable`
+     - `boolean`
+     - optional. set if the value is editable
+   * - `edit_max_value`
+     - `boolean`
+     - optional. set if the maximum value is editable
+   * - `current_value`
+     - `integer`
+     - required. this is the current value of the progress from the field that must be present in the view
+   * - `max_value`
+     - `integer`
+     - required. this value is used to get the maximum value from the field that must be present in the view
 
 .. _frontend/fields/radio_field:
 
