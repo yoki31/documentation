@@ -1,13 +1,7 @@
-# -*- coding: utf-8 -*-
-import os.path
-import posixpath
-import re
-
 from docutils import nodes
-from sphinx import addnodes, util, builders
 from sphinx.locale import admonitionlabels
 from sphinx.writers.html5 import HTML5Translator
-#from urllib.request import url2pathname
+
 
 # Translators inheritance chain:
 # Docutils Base HTML translator: https://sourceforge.net/p/docutils/code/HEAD/tree/trunk/docutils/docutils/writers/_html_base.py
@@ -16,15 +10,11 @@ from sphinx.writers.html5 import HTML5Translator
 #         └── Odoo Translator
 
 ADMONITION_MAPPING = {
-    # ???: 'alert-success',
-
-    'note': 'alert-note',
-
-    'hint': 'alert-info',
+    'note': 'alert-primary',
 
     'tip': 'alert-tip',
 
-    'seealso': 'alert-go_to',
+    'seealso': 'alert-secondary',
 
     'warning': 'alert-warning',
     'attention': 'alert-warning',
@@ -34,8 +24,9 @@ ADMONITION_MAPPING = {
     'danger': 'alert-danger',
     'error': 'alert-danger',
 
-    'exercise': 'alert-exercise',
-}
+    'example': 'alert-success',
+    'exercise': 'alert-dark',
+}  # The alert classes have been replaced by default BS classes to reduce number of scss lines.
 
 
 class BootstrapTranslator(HTML5Translator):
@@ -54,7 +45,6 @@ class BootstrapTranslator(HTML5Translator):
     html_head = 'html_head'
     html_title = 'html_title'
     html_subtitle = 'html_subtitle'
-
 
     def __init__(self, builder, *args, **kwds):
         super().__init__(builder, *args, **kwds)
@@ -81,16 +71,16 @@ class BootstrapTranslator(HTML5Translator):
 
     def encode(self, text):
         return str(text).translate({
-            ord('&'): u'&amp;',
-            ord('<'): u'&lt;',
-            ord('"'): u'&quot;',
-            ord('>'): u'&gt;',
-            0xa0: u'&nbsp;'
+            ord('&'): '&amp;',
+            ord('<'): '&lt;',
+            ord('"'): '&quot;',
+            ord('>'): '&gt;',
+            0xa0: '&nbsp;'
         })
 
     def unknown_visit(self, node):
         print("unknown node", node.__class__.__name__)
-        self.body.append(u'[UNKNOWN NODE {}]'.format(node.__class__.__name__))
+        self.body.append(f'[UNKNOWN NODE {node.__class__.__name__}]')
         raise nodes.SkipNode
 
     # NOTE: seems that when we remove/comment this, we get the titles 5 times in the global toc
@@ -104,7 +94,7 @@ class BootstrapTranslator(HTML5Translator):
         # close "parent" or preceding section, unless this is the opening of
         # the first section
         if self.section_level:
-            self.body.append(u'</section>')
+            self.body.append('</section>')
         self.section_level += 1
 
         self.body.append(self.starttag(node, 'section'))
@@ -112,7 +102,7 @@ class BootstrapTranslator(HTML5Translator):
         self.section_level -= 1
         # close last section of document
         if not self.section_level:
-            self.body.append(u'</section>')
+            self.body.append('</section>')
 
     # overwritten
     # Class mapping:
@@ -139,9 +129,20 @@ class BootstrapTranslator(HTML5Translator):
 
     def depart_title(self, node):
         if isinstance(node.parent, nodes.Admonition):
-            self.body.append(u"</p>")
+            self.body.append("</p>")
         else:
             super().depart_title(node)
+
+    def visit_literal(self, node):
+        """ Override to add the class `o_code` to all `literal`, `code`, and `file` roles. """
+        node['classes'].append('o_code')
+        return super().visit_literal(node)
+
+    def visit_literal_strong(self, node):
+        """ Override to add the class `o_code` to all `command` roles. """
+        if 'command' in node['classes']:
+            node['classes'].append('o_code')
+        return super().visit_literal_strong(node)
 
     # overwritten
     # Ensure table class is present for tables
@@ -149,9 +150,10 @@ class BootstrapTranslator(HTML5Translator):
         # type: (nodes.Node) -> None
         self.generate_targets_for_table(node)
 
-        self._table_row_index = 0
+        # c/p of https://github.com/pydata/pydata-sphinx-theme/pull/509/files
+        self._table_row_indices.append(0)
 
-        classes = [cls.strip(u' \t\n')
+        classes = [cls.strip(' \t\n')
                    for cls in self.settings.table_style.split(',')]
         classes.insert(0, "docutils")  # compat
         classes.insert(0, "table")  # compat

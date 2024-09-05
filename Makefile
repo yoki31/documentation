@@ -18,7 +18,10 @@ CONFIG_DIR     = .
 SPHINXOPTS     = -D project_root=$(ROOT) -D canonical_version=$(CANONICAL_VERSION) \
                  -D versions=$(VERSIONS) -D languages=$(LANGUAGES) -D language=$(CURRENT_LANG) \
                  -D is_remote_build=$(IS_REMOTE_BUILD) \
+                 -T \
                  -A google_analytics_key=$(GOOGLE_ANALYTICS_KEY) \
+                 -A plausible_script=$(PLAUSIBLE_SCRIPT) \
+                 -A plausible_domain=$(PLAUSIBLE_DOMAIN) \
 				 -j $(WORKERS)
 SOURCE_DIR     = content
 
@@ -40,6 +43,7 @@ help:
 	@echo "  html         to build the documentation to HTML"
 	@echo "  fast         to build the documentation to HTML with shallow menu (faster)"
 	@echo "  clean        to delete the build files"
+	@echo "  test         to run the guidelines tests"
 
 clean:
 	@echo "Cleaning build files..."
@@ -53,7 +57,7 @@ html: $(HTML_BUILD_DIR)/_static/style.css
 
 # To call *after* `make html`
 # Binary dependencies (Debian): texlive-fonts-recommended texlive-latex-extra
-# texlive-generic-recommended texlive-fonts-extra
+# texlive-fonts-extra
 latexpdf:
 	@echo "Starting build..."
 	$(SPHINX_BUILD) -c $(CONFIG_DIR) -b latex $(SPHINXOPTS) $(SOURCE_DIR) $(BUILD_DIR)/latex
@@ -77,6 +81,19 @@ $(HTML_BUILD_DIR)/_static/style.css: extensions/odoo_theme/static/style.scss ext
 fast: SPHINXOPTS += -A collapse_menu=True
 fast: html
 
-static: $(HTML_BUILD_DIR)/static/style.css
+static: $(HTML_BUILD_DIR)/_static/style.css
 	cp -r extensions/odoo_theme/static/* $(HTML_BUILD_DIR)/_static/
 	cp -r static/* $(HTML_BUILD_DIR)/_static/
+
+# Called by runbot for the ci/documentation_guideline check.
+test:
+	@python tests/main.py $(SOURCE_DIR)/administration $(SOURCE_DIR)/applications $(SOURCE_DIR)/contributing $(SOURCE_DIR)/developer redirects
+
+# Similar as `test`, but called only manually by content reviewers to trigger extra checks.
+review:
+	@read -p "Enter relative content path: " path; read -p "Enter max line length (default: 100): " line_length; \
+	if [ -z "$$path" ]; then echo "Error: Path cannot be empty"; exit 1; fi; \
+	if echo $$path | grep -q 'content/'; then path=`echo $$path | sed 's|content/||'`; fi; \
+	if [ -z "$$line_length" ]; then line_length=100; fi; \
+	export REVIEW=1; \
+	python tests/main.py --max-line-length=$$line_length $(SOURCE_DIR)/$$path

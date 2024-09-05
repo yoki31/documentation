@@ -20,13 +20,13 @@ Messaging integration
 ---------------------
 
 Basic messaging system
-''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~
 
 Integrating messaging features to your model is extremely easy. Simply inheriting
 the ``mail.thread`` model and adding the messaging fields (and their appropriate
 widgets) to your form view will get you up and running in no time.
 
-.. admonition:: Example
+.. example::
 
     Let's create a simplistic model representing a business trip. Since organizing
     this kind of trip usually involves a lot of people and a lot of discussion, let's
@@ -192,15 +192,14 @@ a date or an e-mail address, add CC's addresses as followers, etc.).
     :return: True
     :rtype: bool
 
-
 Logging changes
-'''''''''''''''
+~~~~~~~~~~~~~~~
 
 The ``mail`` module adds a powerful tracking system on fields, allowing you
 to log changes to specific fields in the record's chatter. To add tracking
 to a field, simple set the tracking attribute to True.
 
-.. admonition:: Example
+.. example::
 
     Let's track changes on the name and responsible of our business trips:
 
@@ -221,9 +220,8 @@ to a field, simple set the tracking attribute to True.
     well to give more context about the notification (even if the name did not
     change).
 
-
 Subtypes
-''''''''
+~~~~~~~~
 
 Subtypes give you more granular control over messages. Subtypes act as a classification
 system for notifications, allowing subscribers to a document to customize the
@@ -272,7 +270,7 @@ can override the ``_track_subtype()`` function:
     :returns: a subtype's full external id or False if no subtype is triggered
 
 
-.. admonition:: Example
+.. example::
 
     Let's add a ``state`` field on our example class and trigger a notification
     with a specific subtype when this field change values.
@@ -318,9 +316,8 @@ can override the ``_track_subtype()`` function:
                     return self.env.ref('my_module.mt_state_change')
                 return super(BusinessTrip, self)._track_subtype(init_values)
 
-
 Customizing notifications
-'''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When sending notifications to followers, it can be quite useful to add buttons in
 the template to allow quick actions directly from the e-mail. Even a simple button
@@ -342,9 +339,9 @@ ways:
   Expense Manager, etc.)
 
 These buttons settings can be applied to different groups that you can define
-yourself by overriding the function ``_notification_recipients``.
+yourself by overriding the function ``_notify_get_groups``.
 
-.. method:: _notification_recipients(message, groups)
+.. method:: _notify_get_groups(message, groups)
 
     Give the subtype triggered by the changes on the record according
     to values that have been updated.
@@ -392,10 +389,10 @@ yourself by overriding the function ``_notification_recipients``.
 
 
 The urls in the actions list can be generated automatically by calling the
-``_notification_link_helper()`` function:
+``_notify_get_action_link()`` function:
 
 
-.. method:: _notification_link_helper(self, link_type, **kwargs)
+.. method:: _notify_get_action_link(self, link_type, **kwargs)
 
     Generate a link for the given type on the current record (or on a specific
     record if the kwargs ``model`` and ``res_id`` are set).
@@ -422,7 +419,7 @@ The urls in the actions list can be generated automatically by calling the
     :returns: link of the type selected for the record
     :rtype: str
 
-.. admonition:: Example
+.. example::
 
     Let's add a custom button to the Business Trip state change notification;
     this button will reset the state to Draft and will be only visible to a member
@@ -440,14 +437,14 @@ The urls in the actions list can be generated automatically by calling the
             def action_cancel(self):
                 self.write({'state': 'draft'})
 
-            def _notification_recipients(self, message, groups):
+            def _notify_get_groups(self, message, groups):
                 """ Handle Trip Manager recipients that can cancel the trip at the last
                 minute and kill all the fun. """
-                groups = super(BusinessTrip, self)._notification_recipients(message, groups)
+                groups = super(BusinessTrip, self)._notify_get_groups(message, groups)
 
                 self.ensure_one()
                 if self.state == 'confirmed':
-                    app_action = self._notification_link_helper('method',
+                    app_action = self._notify_get_action_link('method',
                                         method='action_cancel')
                     trip_actions = [{'url': app_action, 'title': _('Cancel')}]
 
@@ -469,7 +466,7 @@ The urls in the actions list can be generated automatically by calling the
     that can sometimes be boring, I choose the former instead of the latter.
 
 Overriding defaults
-'''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~
 
 There are several ways you can customize the behaviour of ``mail.thread`` models,
 including (but not limited to):
@@ -510,7 +507,7 @@ the outside, allowing users or customers to quickly create records in your
 database without needing to connect to Odoo directly.
 
 Aliases vs. Incoming Mail Gateway
-'''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Some people use the Incoming Mail Gateway for this same purpose. You still need
 a correctly configured mail gateway to use aliases, however a single
@@ -531,7 +528,7 @@ Aliases have several advantages over Mail Gateways:
 
 
 Alias support integration
-'''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Aliases are usually configured on a parent model which will then create specific
 record when contacted by e-mail. For example, Project have aliases to create tasks
@@ -609,7 +606,7 @@ which means that while the alias is stored in another table, you have
 access to all these fields directly from your parent object. This allows
 you to make your alias easily configurable from the record's form view.
 
-.. admonition:: Example
+.. example::
 
     Let's add aliases on our business trip class to create expenses on the fly via
     e-mail.
@@ -738,7 +735,7 @@ and the specific widgets to display them (via the field ``activity_ids``) in the
 view and kanban view of your records (``mail_activity`` and ``kanban_activity``
 widgets, respectively).
 
-.. admonition:: Example
+.. example::
 
     Organizing a business trip is a tedious process and tracking needed activities
     like ordering plane tickets or a cab for the airport could be useful. To do so,
@@ -977,7 +974,7 @@ The rating mixin allows sending email to ask for customer rating, automatic
 transitioning in a kanban processes and aggregating statistics on your ratings.
 
 Adding rating on your model
-'''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To add rating support, simply inherit the ``rating.mixin`` model:
 
@@ -1010,7 +1007,7 @@ The behaviour of the mixin adapts to your model:
   ``mail.thread``)
 
 Send rating requests by e-mail
-''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you wish to send emails to request a rating, simply generate an e-mail with
 links to the rating object. A very basic email template could look like this:

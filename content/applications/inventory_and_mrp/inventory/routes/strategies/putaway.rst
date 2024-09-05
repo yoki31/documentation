@@ -1,45 +1,95 @@
-========================
-What is a Putaway Rule?
-========================
+=============
+Putaway rules
+=============
 
-A good warehouse implementation takes care that products automatically move to their appropriate destination location. To make that process easier, Odoo uses *Putaway rules*. But what is a putaway rule? Putaway is the process of taking products off the receiving shipments and directly putting them into the most appropriate location.
+Putaway is the process of routing products to appropriate storage locations upon shipment arrival.
 
-If, for example, a warehouse contains volatile substances, it is important to make sure that certain products are not stored close to each other because of a potential chemical reaction. That’s where putaway rules intervene, to avoid storing products wrongly.
+Odoo can accomplish this seamlessly using *putaway rules*, which dictate how products move through
+specified warehouse locations.
+
+Upon shipment arrival, operations are generated based on putaway rules to efficiently move products
+to specified locations, and ensure easy retrieval for future delivery orders.
+
+In warehouses that process specific kinds of products, putaway rules can also prevent volatile
+substances from being stored in close proximity, by directing them to different locations determined
+by the warehouse manager.
+
+.. seealso::
+   `Odoo Tutorials: Putaway Rules <https://www.youtube.com/watch?v=nCQMf6sj_w8>`_
 
 Configuration
-==============
+=============
 
-In the *Inventory* app, go to :menuselection:`Configuration --> Settings` and activate the
-*Multi-Step Routes*. By doing so, the *Storage Locations* will be automatically activated.
+To use putaway rules, navigate to :menuselection:`Inventory app --> Configuration --> Settings`, and
+activate the :guilabel:`Multi-Step Routes` feature under the :guilabel:`Warehouse` section. By doing
+so, the :guilabel:`Storage Locations` feature is also automatically activated.
 
-.. image:: media/putaw1.png
+Finally, click :guilabel:`Save`.
+
+.. image:: putaway/activate-multi-step-routes.png
    :align: center
+   :alt: Activate Multi-Step Routes in Inventory configuration settings.
 
-Setting up a Putaway Rule
-==========================
+.. _inventory/routes/putaway-rule:
 
-In some cases, like for a retail shop storing vegetables and fruits, we have to store products in different locations to maintain product quality. 
+Define putaway rule
+-------------------
 
-Let’s suppose there are one warehouse location *WH/Stock* and two sub-locations *WH/Stock/Vegatable* and *WH/Stock/Fruits*.
+To manage where specific products are routed for storage, navigate to :menuselection:`Inventory app
+--> Configuration --> Putaway Rules`. Use the :guilabel:`Create` button to configure a new putaway
+rule on a :guilabel:`Product` or :guilabel:`Product Category` that the rule affects.
 
-To manage those locations, we will create putaway rules. To do so, open the *Inventory* app and go
-to :menuselection:`Configuration --> Putaway Rules`. Then, click on create and configure your first
-rule indicating the main location the product will enter before being redirected to the right
-location.
+.. important::
+   Putaway rules can be defined either per product/product category, and/or package type (the
+   *Packages* setting must be enabled in :menuselection:`Inventory app --> Configuration -->
+   Settings` for that).
 
-.. note::
-   The putaway rules can be defined either per product or per product category.
+In the same line, the :guilabel:`When product arrives in` location is where the putaway rule is
+triggered to create an operation to move the product to the :guilabel:`Store to` location.
 
-.. image:: media/putaw2.png
-   :align: center
+For this to work, the :guilabel:`Store to` location must be a *sub-location* of the first (e.g.,
+`WH/Stock/Fruits` is a specific, named location inside `WH/Stock` to make the products stored here
+easier to find).
 
-Now, if I purchase apples and carrots to my supplier, they will be grouped in the same receipt but redirected to the right location automatically, thanks to putaway rules. This information is available from *Inventory Report*, under the reporting menu.
+.. example::
+   In a warehouse location, **WH/Stock**, there are the following sub-locations:
 
-.. image:: media/putaw3.png
-   :align: center
+   - WH/Stock/Fruits
+   - WH/Stock/Vegetables
 
-.. image:: media/putaw4.png
-   :align: center
+   Ensure all apples are stored in the fruits section by filling the field :guilabel:`Store to` with
+   the location `WH/Stock/Fruits` when the :guilabel:`Product`, `Apple` arrives in `WH/Stock`.
 
-.. image:: media/putaw5.png
-   :align: center
+   Repeat this for all products and hit :guilabel:`Save`.
+
+   .. image:: putaway/create-putaway-rules.png
+      :align: center
+      :alt: Create putaway rules for apples and carrots.
+
+Putaway rule priority
+---------------------
+
+Odoo selects a putaway rule based on the following priority list (from highest to lowest) until a
+match is found:
+
+#. Package type and product
+#. Package type and product category
+#. Package type
+#. Product
+#. Product category
+
+.. example::
+   The product `Lemonade can` has the following putaway rules configured:
+
+   #. When receiving a `Pallet` (:guilabel:`Package Type`) of `Lemonade cans`, it is redirected to
+      `WH/Stock/Pallets/PAL1`.
+   #. `Lemonade can`'s :guilabel:`Product Category` is `All/drinks`, and when receiving a `Box` of
+      any item in this product category, items are redirected to `WH/Stock/Shelf 1`.
+   #. Any product on a `Pallet` is redirected to `WH/Stock/Pallets`
+   #. The product `Lemonade can` is redirected to `WH/Stock/Shelf 2`
+   #. Items in the `All/drinks` product category are redirected to `WH/Stock/Small Refrigerator`.
+
+  .. image:: putaway/putaway-example.png
+     :align: center
+     :alt: Some examples of putaway rules.
+

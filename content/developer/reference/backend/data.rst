@@ -7,7 +7,7 @@ Data Files
 
 Odoo is greatly data-driven, and a big part of modules definition is thus
 the definition of the various records it manages: UI (menus and views),
-security (access rights and access rules), reports and plain data are all
+security (access rights and record rules), reports and plain data are all
 defined via records.
 
 Structure
@@ -77,7 +77,7 @@ following attributes:
     Requires an :term:`external id`, defaults to ``True``.
 
 ``field``
-----------
+---------
 
 Each record can be composed of ``field`` tags, defining values to set when
 creating the record. A ``record`` with no ``field`` will use all default
@@ -175,7 +175,7 @@ values).
 
   <odoo>
       <data noupdate="1">
-          <record name="partner_1" model="res.partner">
+          <record id="partner_1" model="res.partner">
               <field name="name">Odude</field>
           </record>
 
@@ -257,9 +257,6 @@ section of the view, and allowing a few *optional* attributes:
     website interface) and its default status. If unset, the view is always
     enabled.
 
-.. deprecated act_window & report
-.. ignored url, act_window and ir_set
-
 .. _reference/data/csvdatafiles:
 
 CSV data files
@@ -279,13 +276,13 @@ For this case, data files can also use csv_, this is often the case for
 Here's the first lines of the data file defining country states
 ``res.country.state.csv``
 
-.. literalinclude:: static/res.country.state.csv
+.. literalinclude:: data/res.country.state.csv
     :language: text
 
 rendered in a more readable format:
 
 .. csv-table::
-    :file: static/res.country.state.csv
+    :file: data/res.country.state.csv
     :header-rows: 1
     :class: table-striped table-hover table-sm
 

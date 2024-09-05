@@ -1,7 +1,7 @@
 
-==================================
+==========
 Containers
-==================================
+==========
 
 Overview
 ========
@@ -17,7 +17,7 @@ The platform will take care to install these dependencies in your containers.
 `The pip requirements specifiers <https://pip.pypa.io/en/stable/reference/pip_install/#requirement-specifiers>`_
 documentation can help you write a :file:`requirements.txt` file.
 To have a concrete example,
-check out the `requirements.txt file of Odoo <https://github.com/odoo/odoo/blob/14.0/requirements.txt>`_.
+check out the `requirements.txt file of Odoo <{GITHUB_PATH}/requirements.txt>`_.
 
 The :file:`requirements.txt` files of submodules are taken into account as well. The platform
 looks for :file:`requirements.txt` files in each folder containing Odoo modules: Not in the module folder itself,
@@ -167,16 +167,16 @@ In the above commands, the argument:
 * ``--stop-after-init`` will immediately shutdown the server instance after it completed the operations you asked.
 
 More options are available and detailed in the
-:doc:`CLI documentation </developer/misc/other/cmdline>`.
+:doc:`CLI documentation </developer/reference/cli>`.
 
 You can find in the logs (*~/logs/odoo.log*) the addons path used by Odoo.sh to run your server.
 Look for "*odoo: addons paths*":
 
 ::
 
-  2018-02-19 10:51:39,267 4 INFO ? odoo: Odoo version 13.0
+  2018-02-19 10:51:39,267 4 INFO ? odoo: Odoo version {BRANCH}
   2018-02-19 10:51:39,268 4 INFO ? odoo: Using configuration file at /home/odoo/.config/odoo/odoo.conf
-  2018-02-19 10:51:39,268 4 INFO ? odoo: addons paths: ['/home/odoo/data/addons/13.0', '/home/odoo/src/user', '/home/odoo/src/enterprise', '/home/odoo/src/themes', '/home/odoo/src/odoo/addons', '/home/odoo/src/odoo/odoo/addons']
+  2018-02-19 10:51:39,268 4 INFO ? odoo: addons paths: ['/home/odoo/data/addons/{BRANCH}', '/home/odoo/src/user', '/home/odoo/src/enterprise', '/home/odoo/src/themes', '/home/odoo/src/odoo/addons', '/home/odoo/src/odoo/odoo/addons']
 
 **Be careful**, especially with your production database.
 Operations that you perform running this Odoo server instance are not isolated:
@@ -232,6 +232,6 @@ Save the file and then run the Odoo Shell:
 Finally, *via* the Odoo Shell, you can trigger the piece of code/function/method
 you want to debug.
 
-.. image:: ./media/pdb_sh.png
+.. image:: containers/pdb_sh.png
     :align: center
     :alt: Console screenshot showing ``pdb`` running in an Odoo.sh shell.

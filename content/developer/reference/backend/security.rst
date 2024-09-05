@@ -79,14 +79,14 @@ will have all three of create, read, and update.
 
 .. _reference/security/rules:
 
-Access Rules
+Record Rules
 ============
 
 Record rules are *conditions* which must be satisfied in order for an operation
 to be allowed. Record rules are evaluated record-by-record, following access
 rights.
 
-Access rules are default-allow: if access rights grant access and no rule
+Record rules are default-allow: if access rights grant access and no rule
 applies to the operation and model for the user, the access is granted.
 
 .. class:: ir.rule
@@ -203,7 +203,7 @@ Unsafe Public Methods
 ---------------------
 
 Any public method can be executed via a :ref:`RPC call
-<webservices/odoo/calling_methods>` with the chosen parameters. The methods
+<api/external_api/calling_methods>` with the chosen parameters. The methods
 starting with a ``_`` are not callable from an action button or external API.
 
 On public methods, the record on which a method is executed and the parameters
@@ -225,6 +225,7 @@ properly.
 
 Bypassing the ORM
 -----------------
+
 You should never use the database cursor directly when the ORM can do the same
 thing! By doing so you are bypassing all the ORM features, possibly the
 automated behaviours like translations, invalidation of fields, ``active``,
@@ -250,6 +251,7 @@ less secure.
 
 SQL injections
 ~~~~~~~~~~~~~~
+
 Care must be taken not to introduce SQL injections vulnerabilities when using
 manual SQL queries. The vulnerability is present when user input is either
 incorrectly filtered or badly quoted, allowing an attacker to introduce
@@ -420,6 +422,7 @@ likely it is to break things.
 
 Evaluating content
 ------------------
+
 Some may want to ``eval`` to parse user provided content. Using ``eval`` should
 be avoided at all cost. A safer, sandboxed, method :class:`~odoo.tools.safe_eval`
 can be used instead but still gives tremendous capabilities to the user running

@@ -1,1004 +1,1254 @@
+@import "scss/bootstrap_scss/_functions.scss";
 @import "scss/_sphinx_basic";
-@import "scss/_variables";
 @import "scss/bootstrap_overridden";
 @import "scss/bootstrap_scss/bootstrap";
+@import "scss/_variables";
+@import "scss/_utilities_extended";
+@import "scss/bootstrap_scss/utilities/_api.scss";
 @import "scss/_mixins";
 @import "scss/_typography";
 @import "scss/_iconfont";
+@import "scss/_font_awesome";
 
 div[aria-label="related navigation"] {
     display: none;
 }
 
 body {
-    a:not(:hover), a.o_logo {
-        text-decoration: none !important;
-    }
+    position: relative;
 
-    dd {
-        margin-left: 1rem;
-    }
+    a {
+        text-underline-position: from-font;
 
-    // This fixes the scroll position on all elements, including refs
-    :target {
-        &:before {
-            @include o-scroll-padding()
+        &.external:not(.image-reference):after {
+            //see https://www.odoo.com/documentation/master/contributing/documentation/rst_cheat_sheet.html#external-hyperlinks
+            content: '#{$i-external-link}';
+            margin: 0 $o-icon-margin;
+            font-family: icomoon, sans-serif !important;
+            @include font-size($font-size-base/1.3);
+        }
+
+        @include media-breakpoint-down(lg) {
+            overflow-wrap: anywhere;
         }
     }
 
-    abbr[title="Pull Request"] {
-        @include o-easter-egg();
+    // This fixes the scroll position on all elements, including refs
+    :target:before {
+        @include o-scroll-padding()
     }
+
 }
 
 .hidden {
-    visibility: hidden !important;
     display: none !important;
     opacity: 0 !important;
+    visibility: hidden !important;
 }
+
 //------------------------------------------------------------------------------
 // Header with logo, searchbar and switchers
 //------------------------------------------------------------------------------
 
-header.o_main_header {
-    width: 100%;
-    height: $o-header-mobile-height;
+header {
     position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
     right: 0;
-    background-color: $o-header-white;
     z-index: 10;
-    padding: 0 $padding-s;
-    @include media-breakpoint-up(lg) {
-        height: $o-header-height;
-        padding: 0 $padding-m;
-    }
-    @include media-breakpoint-up(xl) {
-        padding: 0 $padding-l 0 $padding-m;
-    }
 
-    .o_logo_wrapper {
-        > .o_logo {
-            img {
-                margin-bottom: -2px;
-                vertical-align: baseline;
-            }
+    .o_main_header {
+        height: $o-header-mobile-height;
+        padding: 0 $o-padding-s;
+        background-color: $o-header-bg;
 
-            span {
-                @include font-size($font-size-base);
-                color: $o-violet;
-                @include o-easter-egg($img:'img/ducky.svg');
-            }
+        @include media-breakpoint-up(lg) {
+            height: $o-header-height;
+            padding: 0 $o-padding-m;
         }
+
         @include media-breakpoint-up(xl) {
-            width: calc(#{$o-side-nav-width} - #{$padding-l});
-        }
-        @include media-breakpoint-up(lg) {
-            margin-right: $margin-l;
-        }
-    }
-
-    .o_logo img {
-        @include media-breakpoint-up(lg) {
-            height: 30px
-        }
-    }
-
-    .o_search_wrapper {
-        display: flex;
-        position: relative;
-        opacity: 1;
-        @include transition(opacity .3s);
-        @include media-breakpoint-down(lg) {
-            display: block;
-            position: absolute;
-            width: calc(100% - (#{$padding-s} * 2));
-            top: calc(100% + #{$padding-s});
-        }
-        @include media-breakpoint-up(lg) {
-            flex-grow: 1;
-            max-width: 500px;
+            padding: 0 $o-padding-l 0 $o-padding-m;
         }
 
-        .o_search {
-            position: relative;
-            width: 100%;
+        .o_logo_wrapper {
+            margin-right: $o-margin-s;
 
+            @include media-breakpoint-up(xl) {
+                width: calc(#{$o-side-nav-width} - #{$o-padding-m});
+            }
 
-            .btn {
-                @include o-position-absolute($top: 50%, $right: 1rem);
-                @include o-transform (translateY(-50%)) ;
-                padding: 0;
-                font-size: 1.2rem;
-                color: $gray;
+            @include media-breakpoint-up(lg) {
+                margin-right: $o-margin-l;
+            }
+
+            > .o_logo {
+                text-decoration: none;
+
+                img {
+                    vertical-align: baseline;
+                    margin-bottom: -2px;
+                }
+
+                span {
+                    @include o-easter-egg($img:'img/ducky.svg');
+                    @include font-size($font-size-base);
+                    color: $secondary;
+                }
             }
         }
-    }
 
-    &.o_header_scrolled {
+        .o_logo img {
+            @include media-breakpoint-up(lg) {
+                height: 30px
+            }
+        }
+
+        > div:not(.o_logo_wrapper) {
+            @include media-breakpoint-up(lg) {
+                width: calc(100% - (#{$o-side-nav-width}));
+            }
+        }
+
         .o_search_wrapper {
-            @include media-breakpoint-down(lg) {
-                opacity: 0;
+            position: relative;
+
+            @include media-breakpoint-up(lg) {
+                margin-right: $o-padding-m;
+            }
+
+            .o_search {
+                position: relative;
+                width: 100%;
+
+                .btn {
+                    @include o-position-absolute($top: 50%, $right: .5rem);
+                    transform: translateY(-50%);
+                    padding: 0 $o-padding-xs;
+                    font-size: 1.2rem;
+                    color: $o-gray;
+                }
+
+                .form-control {
+                    @include media-breakpoint-down(lg) {
+                        padding: 0.275rem 0.5rem;
+                        font-size: $font-size-sm;
+                    }
+                }
+
+            }
+
+            .highlight-link {
+                margin-bottom: 0;
+                @include font-size(0);
+
+                a {
+                    text-decoration: none;
+                    color: $o-gray;
+
+                    &:before {
+                        @include o-position-absolute($top: 50%, $right: 3rem);
+                        content: $i-close;
+                        transform: translateY(-50%);
+                        @include o-inline-icon(auto, middle, 1.2rem);
+                    }
+                }
             }
         }
     }
 
-    .highlight-link {
-        @include o-position-absolute($bottom: -1.5rem, $right: 1rem);
-        margin-bottom: 0;
-        a {
-            @include font-size(12px);
-        }
-    }
+    .o_subheader {
+        height: $o-subheader-height;
+        padding-right: $o-padding-s;
+        background: $o-gray-bg;
 
-    .navbar-toggler {
-        &[aria-expanded="true"] {
-            .icon-bar {
-                &:nth-of-type(1) {
-                    @include o-transform(rotate(45deg));;
-                    @include o-transform-origin(10%, 10%)
-                }
-
-                &:nth-of-type(2) {
-                    opacity: 0;
-                    filter: alpha(opacity=0);
-                }
-
-                &:nth-of-type(3) {
-                    @include o-transform(rotate(-45deg));
-                    @include o-transform-origin(10%, 90%)
-                }
-            }
+        @include media-breakpoint-up(lg) {
+            padding: 0 $o-padding-m;
         }
 
-        .icon-bar {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background-color: $gray-dark;
-            @include o-transition(all, .2s);
-
-            &+ .icon-bar {
-                margin-top: 4px;
-            }
-
-            &:nth-of-type(1) {
-                @include o-transform(rotate(0));
-            }
-
-            &:nth-of-type(2) {
-                opacity: 1;
-                filter: alpha(opacity=100);
-            }
-
-            &:nth-of-type(3) {
-                @include o-transform(rotate(0));
-            }
+        @include media-breakpoint-up(xl) {
+            padding: 0 $o-padding-l 0 0;
         }
 
-        &:focus {
-            box-shadow: none;
-            outline:none;
+        .o_side_nav_toggler_wrapper {
+            height: 100%;
+
+            button {
+                &:focus, &:focus-visible{
+                    box-shadow: none;
+                    outline:none;
+                }
+
+                &[aria-expanded="true"]{
+                    background-color: rgba(0,0,0, .2);
+                }
+            }
         }
     }
 }
 
 //------------------------------------------------------------------------------
-// Left side nav toctree
+// Navigation - Left side-nav toctree
 //------------------------------------------------------------------------------
 
 .o_side_nav {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    position: fixed;
-    top: -100%;
-    left:0;
-    @include o-transition(all, .3s);
-    padding-top: 4rem;
-    padding-left: $padding-s;
-    background-color: lighten($o-violet-dark, 70%) ;
-    z-index: 10;
-    @include font-size($font-size-secondary);
-    color: $o-violet-dark;
-    font-weight: $fw_regular;
-    @include media-breakpoint-up(lg) {
-        width: calc(#{$o-side-nav-width} - 1rem);
-        height: calc(100vh - #{$o-header-height});
-        top: $o-header-height;
-        padding-top: $padding-m;
-        padding-left: $padding-m;
+    .o_mobile-overlay {
+        @include o-position-absolute($top: 0, $bottom: 0, $left: 0, $right:0);
+        z-index: -100;
+        opacity: 0;
+        transition: opacity .2s linear;
+        background-color: rgba(0,0,0,.3);
     }
-    @include media-breakpoint-up(xl) {
-        width: $o-side-nav-width;
+
+    .o_side_nav-inner {
+        position: fixed;
+        left: -100%;
+        z-index: 10;
+        width: 90%;
+        height: calc(100% - #{$o-headers-mobile-height});
+        transition: all, .3s;
+        overflow-y: auto;
+        padding-left: $o-padding-s;
+        background-color: lighten($secondary, 70%) ;
+        color: $secondary;
+        font-weight: $font-weight-normal;
+
+        @include media-breakpoint-up(lg) {
+            width: $o-side-nav-width;
+            height: calc(100vh - #{$o-headers-height});
+            left: 0;
+            padding-top: $o-padding-m;
+            padding-left: $o-padding-s;
+        }
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $white;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $secondary;
+            border-radius: 0;
+        }
     }
 
     &.show {
-        top: $o-header-mobile-height;
+        .o_mobile-overlay {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .o_side_nav-inner {
+            left: 0;
+        }
+    }
+
+}
+
+.o_main_toc {
+    ul {
+        &.current li.o_active_toc_entry {
+            color: $secondary;
+        }
     }
 
     .toctree-l1 {
-        padding-top: $padding-xs;
-        padding-bottom: $padding-xs;
+        padding-bottom: $o-padding-xs;
 
-        > .o_toc_entry_wrapper a {
-            color: $o-violet-dark;
-            font-weight: 600;
+        > .o_toc_entry_wrapper {
+            a, i {
+                color: $secondary;
+                font-weight: $o-font-weight-medium;
+            }
         }
+
+        &[class*="o_menu_"] {
+            &.o_deepest_active_toc_entry > .o_toc_entry_wrapper i {
+                color: $white;
+            }
+
+            > .o_toc_entry_wrapper > i:before {
+                @include o-inline-icon(0 $o-icon-margin 0 0);
+            }
+        }
+
+        &.o_menu_applications > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-apps}';
+        }
+
+        &.o_menu_administration > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-admin}';
+        }
+
+        &.o_menu_developer > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-dev}';
+        }
+
+        &.o_menu_services > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-services}';
+        }
+
+        &.o_menu_contributing > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-contribute}';
+        }
+    }
+}
+
+.o_main_toc, .o_page_toc_nav {
+
+    .o_toc_entry_wrapper {
+        display: flex;
+        align-items: baseline;
+        border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    a {
+        padding: .3rem;
+        text-decoration: none;
+        color: $o-gray-color;
+        font-weight: $font-weight-normal;
+        @include font-size($font-size-sm);
     }
 
     ul {
-        .o_deepest_active_toc_entry {
-            background-color: $gray-lighter;
-            border-left: 3px solid $gray-lighter;
-            margin-left: -3px;
-        }
-
-        li {
-            &.o_active_toc_entry {
-                &:not(.toctree-l1) > .o_toc_entry_wrapper i[class^="i-"]:not(.collapsed), > a , > .o_toc_entry_wrapper a, > .o_toc_entry_wrapper i {
-                    color: $o-violet-dark;
-                }
-            }
-
-            a {
-                &.current {
-                    color: $o-violet-dark;
-                }
-            }
-        }
-
-        > .toctree-l1 {
-            &[class*="o_menu_"] > .o_toc_entry_wrapper > i:before {
-                @include o-inline-icon($i-doc-apps, 0 5px 0 0);
-                color: $o-violet-dark;
-            }
-
-            &.o_menu_applications > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-apps}';
-            }
-
-            &.o_menu_administration > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-admin}';
-            }
-
-            &.o_menu_developer > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-dev}';
-            }
-
-            &.o_menu_services > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-services}';
-            }
-
-            &.o_menu_contributing > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-contribute}';
-            }
-
-        }
-    }
-    scrollbar-width: thin;
-    scrollbar-color: $o-violet-darker transparent;
-
-    &::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: $white;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: $o-violet-darker ;
-        border-radius: 0;
-    }
-}
-
-.o_side_nav, .o_page_toc_nav {
-    ul { // all uls in toc
+        padding-left: $o-padding-s;
         list-style: none;
-        padding-left: $padding-s;
 
         li {
-            > a.reference {
-                padding-left: .875rem;
-            }
-
-            a {
-                display: inline-block;
-                padding: .4rem 0;
-                color: $gray-darker;
-                font-weight: $fw_regular;
-            }
-
-            &:not(.toctree-l1) {
-                .o_toc_entry_wrapper {
-                    &:not(.o_page_toc_title) {
-                        display: flex;
-                        align-items: baseline;
-                    }
-
-                    > i[class^="i-"] {
-                        display: inline-block;
-                        margin-right: .125rem;
-                        @include o-transition(rotate, .3s);
-                        font-size: .75rem;
-                        &[aria-expanded="true"] {
-                            @include o-transform(rotate(90deg));
-                        }
-                    }
-                }
-            }
-
             &.o_active_toc_entry {
-                &:not(.toctree-l1) > .o_toc_entry_wrapper {
-                    i[class^="i-"]:not(.collapsed) {
-                        @include o-transform(rotate(90deg));
+                font-weight: $font-weight-bolder;
+
+                &:not(.toctree-l1) > .o_toc_entry_wrapper i[class^="i-"]:not(.collapsed) {
+                    transform: rotate(90deg);
+                }
+
+                > .o_toc_entry_wrapper a, > a {
+                    color: inherit;
+                    font-weight: inherit;
+                }
+
+                &.o_deepest_active_toc_entry {
+                    > a,  > .o_toc_entry_wrapper, > .o_toc_entry_wrapper a {
+                        background-color: $secondary;
+                        color: $white;
+                        font-weight: inherit;
                     }
                 }
-                > a , > .o_toc_entry_wrapper a, > .o_toc_entry_wrapper i {
-                    font-weight: $fw_bold;
+            }
+
+            &:not(.toctree-l1) .o_toc_entry_wrapper {
+                > i[class^="i-"] {
+                    transition: rotate, .3s;
+                    font-size: .75rem;
+
+                    &[aria-expanded="true"] {
+                        transform: rotate(90deg);
+                    }
+
                 }
+            }
+
+            &:not(.o_deepest_active_toc_entry) {
+                > .o_toc_entry_wrapper:hover, > a:hover {
+                    background-color: $o-gray-bg;
+                }
+            }
+
+            .o_toc_entry_wrapper > i {
+                cursor: pointer;
+                margin-left: $o-icon-margin;
+            }
+
+            > a {
+                display: block;
+                padding-left: 1.25rem;
+                border-radius: $border-radius 0 0 $border-radius;
             }
         }
     }
 
-    > ul { //is first ul in toc
+    > ul {
         padding-left: 0;
     }
 }
+
 //------------------------------------------------------------------------------
-// On this page local toctree
+// Navigation - "On This Page" local toctree
 //------------------------------------------------------------------------------
 
-    aside.o_page_toc {
+aside.o_page_toc {
+    color: $body-color;
+
+    &:not(.o_in_nav_toc) {
+        position: -webkit-sticky;
+        position: sticky;
         display: none;
-        @include font-size($font-size-secondary);
+        height: 100%;
+        max-height: calc(100vh - #{$o-headers-height});
+
         @include media-breakpoint-up(xl) {
             display: block;
-            position: -webkit-sticky;
-            position: sticky;
-            top: $o-header-height;
-            right: 0;
-            width: $o-on-page-width;
-            height: 100%;
-            max-height: calc(100vh - #{$o-header-height});
-            padding: $padding-l $padding-s $padding-l 0;
+            grid-area: toc;
+            top: $o-headers-height;
+            padding: $o-padding-m 0;
             overflow-y: auto;
-        }
-
-        h3 {
-            text-transform: uppercase;
-            font-weight: $fw_bold;
-            color: $gray-darker;
-            padding-left: $padding-xs;
-            margin-bottom: $padding-xs;
-        }
-
-        a {
-            font-weight: $fw_regular;
-            color: $gray-darker;
-        }
-
-        .o_page_toc_title {
-            display:none;
-
-            + ul {
-                padding-left: 0;
-            }
         }
     }
 
+    &.o_in_nav_toc {
+        display: block;
+
+        @include media-breakpoint-up(xl) {
+            display: none;
+        }
+    }
+
+    h5 {
+        margin-bottom: $o-padding-xs;
+        font-weight: $font-weight-bolder;
+        color: $o-gray-color;
+        text-transform: uppercase;
+    }
+
+    .o_page_toc_title {
+        display:none;
+
+        + ul {
+            padding-left: 0;
+        }
+    }
+}
+
 //------------------------------------------------------------------------------
-// Main page content
+// Layout
 //------------------------------------------------------------------------------
 
 #wrap {
-    margin-top: $o-header-mobile-height;
+    display: grid;
+    grid-template-areas: "main";
+    grid-template-columns: minmax(0,100%);
+    margin-top: $o-headers-mobile-height;
+
     @include media-breakpoint-up(lg) {
-        display: flex;
-        justify-content: space-between;
-        margin-top: $o-header-height;
+        grid-template-areas: "sidebar main toc";
+        grid-template-columns: minmax(0,$o-side-nav-width) minmax(0,auto) minmax(0,$o-on-page-width);
+        margin-top: $o-headers-height;
+    }
+}
+
+main.container-fluid {
+    position: relative;
+    grid-area: main;
+    padding-bottom: $o-padding-l;
+
+    @include media-breakpoint-up(lg) {
+        grid-column-end: toc;
+        margin: 0;
+        padding: $o-padding-m $o-padding-l;
     }
 
-    code {
-        display: inline-block;
-        color: inherit;
-        background: $doc_code-bg;
-        padding: 0 .3rem;
-        margin: 0 0.1rem;
-        line-height: 1.3;
-        border: 1px solid $gray-light;
-        overflow-wrap: anywhere;
+    @include media-breakpoint-up(xl) {
+        grid-column-end: main;
     }
 
-    iframe {
-        max-width: 100%;
+    &.o_index, &.o_fullwidth_page, &.o_has_code_column {
+        grid-column-end: toc;
     }
+}
 
-    main {
-        position: relative;
-        padding-top: 5rem;
-        padding-bottom: $padding-l;
+//------------------------------------------------------------------------------
+// Content
+//------------------------------------------------------------------------------
+
+// Homepage
+// https://www.odoo.com/documentation/master/index.html
+
+.o_index {
+    .o_content_fw_banner {
+        align-items: center;
+        margin: 0 -0.75rem $o-margin-m;
+        padding: $o-padding-m $o-padding-s;
+        @include o-gradient();
+
         @include media-breakpoint-up(lg) {
-            left: calc(#{$o-side-nav-width} - #{$padding-s});
-            max-width: calc(100vw - #{$o-side-nav-width});
-            padding: $padding-l;
-            margin: 0;
+            margin: -#{$o-margin-m} -#{$o-margin-l} $o-margin-m;
+            padding: $o-padding-m $o-padding-m;
         }
+
         @include media-breakpoint-up(xl) {
-            left: $o-side-nav-width;
-            max-width: calc(100vw - #{$o-side-nav-width} - #{$o-on-page-width});
+            margin: -#{$o-margin-m} -#{$o-margin-l} $o-margin-l;
+            padding: $o-padding-l $o-padding-l;
+        }
+    }
+    .row:first-of-type h2.border-top {
+        @include media-breakpoint-up(lg) {
+            border-top: 0 solid transparent !important;
+        }
+    }
+
+    h5 {
+        font-size: 12px;
+    }
+
+    ul > li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-bottom: $o-padding-xs;
+
+        &:before {
+            content: $i-article;
+            @include o-inline-icon(0 $o-icon-margin 0 0);
+            color: $o-gray-light;
+        }
+    }
+}
+
+// First level legal page and pages with toctrees
+// (ex: https://www.odoo.com/documentation/master/developer.html)
+.o_fullwidth_page div.toctree-wrapper > ul {
+    flex-wrap: wrap;
+    display: flex;
+
+    > li {
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
         }
 
-        &.o_index, &.o_fullwidth_page, &.o_has_code_column {
-            @include media-breakpoint-up(xl) {
-                max-width: calc(100vw - #{$o-side-nav-width});
+        @include media-breakpoint-up(lg) {
+            width: 33%;
+
+            &:not(:nth-of-type(3n)){
+                padding-right: $o-padding-m;
             }
         }
+    }
+}
 
-        // Homepage
+// Pages with a column for code on the right
+// (ex: https://www.odoo.com/documentation/master/applications/finance/accounting/getting_started/memento.html)
 
-        &.o_index {
-            .o_content_fw_banner {
-                margin: 0 -0.75rem $margin-m;
-                padding: $padding-m $padding-s;
-                align-items: center;
-                @include o-gradient();
-                @include media-breakpoint-up(lg) {
-                    margin: -#{$margin-m} -#{$margin-m} $margin-m;
-                    padding: $padding-m $padding-m;
-                }
-                @include media-breakpoint-up(xl) {
-                    margin: -#{$margin-l} -#{$margin-l} $margin-l;
-                    padding: $padding-l $padding-l;
-                }
-            }
-            .row:first-of-type h2.border-top {
-                @include media-breakpoint-up(lg) {
-                    border-top: 0 solid transparent !important;
-                }
-            }
-
-            h5 {
-                font-size: 12px;
-            }
-
-            ul {
-                > li {
-                    position: relative;
-                    padding-bottom: $padding-xs;
-                    display: flex;
-                    align-items: center;
-
-                    &:before {
-                        @include o-inline-icon($i-article, 0 .2rem 0 0);
-                        color: $gray-light;
-                    }
-                }
-            }
-
-            .o_changelog {
-                .row:last-of-type > .border-bottom {
-                    border: none !important;
-                }
-            }
-        }
-
-        // First level legal page and pages with toctrees (i.e.: User Docs, Install & Maintain, Developer, Contributing)
-        &.o_fullwidth_page {
-                div.toctree-wrapper > ul {
-                    display: flex;
-                    flex-wrap: wrap;
-                    > li {
-                        @include media-breakpoint-down(lg) {
-                            width: 100%;
-                        }
-                        @include media-breakpoint-up(lg) {
-                            width: 33%;
-                            &:not(:nth-of-type(3n)){
-                                padding-right: $padding-m;
-                            }
-                        }
-
-                    }
-                }
-            }
-
-        // pages with column for code on the right
-        &.o_has_code_column {
-            article.doc-body {
-                > * {
-                  max-width: 100%;
-                }
-
-                .content-switcher {
-                    .nav-tabs .nav-link.active {
-                        background-color: #f8f8f8;
-                        border-color: #dee2e6 #dee2e6 #f8f8f8;
-                        font-weight: $fw_semibold;
-                    }
-
-                    .tab-content {
-                        background: $doc_code-bg;
-                        border: 1px $gray-300 solid;
-                        border-top: 0;
-
-                        div[class^="highlight"] {
-                            border: 0;
-                            margin: 0;
-                        }
-                    }
-                }
-
-                @include media-breakpoint-up(xl) {
-                    width: 100%;
-                    padding-right: 0;
-
-                    &:before {
-                        @include o-code-col();
-                    }
-
-                    .o_git_link {
-                        right: calc(#{$o-codecol-width} + $padding-l);
-                    }
-
-                    section {
-                        > * {
-                            width: $o-halfpage-width;
-                            float: left;
-                            clear: left;
-                        }
-
-                        > h1 {
-                            max-width: calc(#{$o-halfpage-width} - 120px);
-                        }
-
-                        > h1, > h2, > h3, > h4, > h5, > h6 {
-                            float: none;
-                            clear: none;
-                        }
-
-                        .doc-aside {
-                            width: $o-codecol-width;
-                            float: none;
-                            clear: none;
-                            margin-left: 57%;
-                            padding: $padding-s;
-
-                            blockquote {
-                                font-weight: $fw_semibold;
-                                font-style: italic;
-                            }
-
-                            pre {
-                                font-size: 12px;
-                            }
-                        }
-                    }
-                }
-            }
-
-            + aside.o_page_toc{
-                display: none;
-            }
-        }
-
-        &.o_hide_toc {
-            .toctree-wrapper {
-                display: none;
-            }
-        }
-
-        .toctree-wrapper {
-            > ul, .toctree-l1 > ul {
-                padding-left: 0;
-                list-style: none;
-            }
-
-            .toctree-l1 > a {
-                display: block;
-                @include font-size($h2-font-size);
-                margin-top: $padding-m;
-                padding-bottom: $padding-xs;
-                border-bottom: 1px solid $gray-light;
-                margin-bottom: $margin-s;
-                font-size: 1.2rem;
-                font-weight: 600;
-            }
-
-            .toctree-l1 {
-                margin-bottom: 2rem;
-            }
-
-            .toctree-l2 > a[href="#"] {
-                margin-top: 0.7rem;
-                display: inline-block;
-            }
-
-            a[href="#"] {
-                pointer-events: none;
-                cursor: default;
-                color: $gray-darker;
-                font-weight: $fw_semibold;
-            }
-        }
-
-        article.doc-body {
-            position: relative;
-
+.o_has_code_column {
+    article.doc-body {
+        @include media-breakpoint-up(xl) {
             .o_git_link {
-                @include font-size($font-size-secondary);
-                @include o-position-absolute($top: 0px, $right: $margin-s);
-                @include media-breakpoint-up(lg) {
-                    @include o-position-absolute($top: 10px, $right: $margin-s);
-                }
-                i {
-                    margin-right: .2rem;
-                }
-            }
-
-            .command {
-                font-family: var(--bs-font-monospace);
-            }
-
-            .field-list {
-                @include font-size($font-size-secondary);
-                padding: .5rem;
-                border: 1px solid $gray-light;
-
-                ul {
-                    list-style: none;
-                    padding-left: 0;
-
-                    li {
-                        padding-bottom: $padding-xs;
-                    }
-                }
-            }
-
-            // Search items highlighted
-            span.highlighted {
-                background-color: lighten($warning, 15%);
+                right: calc(#{$o-codecol-width} + #{$o-padding-l});
             }
 
             section {
+                > * {
+                    float: left;
+                    clear: left;
+                    width: $o-halfpage-width;
+                }
+
                 > h1 {
-                    color: $o-violet-dark;
-                    font-weight: $fw_bold;
-                    @include media-breakpoint-up(lg) {
-                        max-width: calc(100% - 120px);
-                    }
-                    + * {
-                        margin-top: $margin-s;
-                    }
+                    max-width: calc(#{$o-halfpage-width} - 120px);
                 }
 
-                > h2 {
-                    font-family: $font-family-serif;
-                    color: $gray-darker;
-                    margin-top: $margin-m;
-                    margin-bottom: $margin-s;
-                    padding-bottom: .3rem;
-                    border-bottom: 1px solid $gray-light;
+                > h1, > h2, > h3, > h4, > h5, > h6 {
+                    float: none;
+                    clear: none;
                 }
 
-                > h3 {
-                    margin-top: $margin-m;
-                    font-weight: $fw_bold;
-                }
+                .doc-aside {
+                    float: none;
+                    clear: none;
+                    width: $o-codecol-width;
+                    margin-left: 57%;
+                    padding: $o-padding-s;
 
-                > h4 {
-                    margin-top: $margin-l;
-                }
-
-                > h4, > h5, > h6 {
-                    font-weight: $fw_semibold;
-                }
-
-                img:not([alt="green"]):not([alt="orange"]):not([alt="red"]) {
-                    border: 1px solid $gray-lighter;
-                    background: $white;
-                    padding: .5rem;
-                }
-
-                img:not([alt="green"]):not([alt="orange"]):not([alt="red"]), iframe {
-                    margin-bottom: 1rem;
-                }
-
-                p > img {
-                    border: none;
-                    padding: 0;
-                    margin-bottom: 0;
-                }
-
-                .figure {
-
-                    .caption, .caption-text {
-                        font-weight: $fw_semibold;
-                        color: $gray;
-                    }
-
-                    .caption, .caption-text, .legend, .legend p {
+                    blockquote {
+                        font-weight: $font-weight-bold;
                         font-style: italic;
-                        margin: 0 auto;
                     }
 
-                    @include media-breakpoint-up(md) {
-                        &:not([class^="col"]) .legend {
-                            max-width: 60%;
-                        }
-                    }
-                }
-
-                a.headerlink {
-                    text-decoration: none;
-                    font-size: 0;
-                    visibility: hidden !important;
-
-                    &:before {
-                        content: "\a0";
-                    }
-
-                    &:after {
-                        content: '#{$i-link}';
-                        font-family: icomoon !important;
-                        @include font-size($font-size-base);
-                        margin: 0 0 0 .3rem;
-                        visibility: hidden;
-                        color: $gray-light;
-                        opacity: 0;
-                        @include o-transition(all, .1s)
-                    }
-                }
-
-                *:hover > a.headerlink:after {
-                    // This makes permalinks only visible on hover.
-                        visibility: visible;
-                        opacity: 1;
-                }
-
-                table.table {
-                    @include media-breakpoint-down(lg){
-                    display: block;
-                    overflow-x: auto;
-                        code {
-                            overflow-wrap: break-word;
-                        }
+                    pre {
+                        font-size: 12px;
                     }
                 }
             }
         }
+    }
 
-        div[class^="highlight"] {
-            // This styles the consoles like read-the-doc's consoles
-            overflow-x: auto;
-            border: 1px solid $gray-light;
-            margin: 1px 0 24px 0;
+    + aside.o_page_toc{
+        display: none;
+    }
+}
 
-            div[class^="highlight"] {
-                padding: 0px;
-                border: none;
-                margin: 0;
-            }
-            pre {
-                white-space: pre;
-                margin: 0;
-                padding: 1rem;
-                display: block;
-                overflow: auto;
-            }
-        }
+.o_hide_toc .toctree-wrapper {
+    display: none;
+}
 
-        .guilabel, .menuselection {
-            font-weight: $fw_semibold;
-        }
+.toctree-wrapper {
+    %toctree-custom-link {
+        > a:not([href="#"]){
+            --o-link-color: #{$o-gray-color};
+            --o-link-hover-color: #{$primary};
 
-        .dfn{
-            @include font-size($font-size-secondary);
-            line-height: 1;
-            color: $o-violet;
-            font-weight: $fw_semibold;
-            &:before {
-                content:'?';
-                display: inline-block;
-                width: 15px;
-                height: 15px;
-                background-color: $o-violet;
-                border: 1px solid $o-violet;
-                border-radius: 20px;
-                text-align: center;
-                color: $white;
-                font-weight: $fw_extrabold;
-                font-style: normal;
-                margin: 0 .2rem;
+            &:after {
+                content: ' #{$i-link}';
+                @include o-inline-icon(auto, baseline, 0.7em, $font-weight-bold);
+                color: $primary;
             }
         }
+    }
 
-        .pq-patch em {
+    > ul, .toctree-l1 > ul {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    &:not(.o_toc_l1_to_l2) .toctree-l1 {
+        @extend %toctree-custom-link;
+        margin-bottom: 2rem;
+
+        > a {
             display: block;
-            border-radius: 4px 4px 0 0;
-            background: $gray-lighter;
-            padding: .2rem 1rem;
-            @include font-size($font-size-secondary);
-            font-weight: 600;
+            margin-top: $o-padding-m;
+            margin-bottom: $o-margin-s;
+            padding-bottom: $o-padding-xs;
+            border-bottom: 1px solid $o-gray-border;
+            @include font-size($h2-font-size);
+            font-weight: $font-weight-bolder;
+        }
+    }
+
+    .toctree-l2.o_toc_contains_l3 {
+        margin-top: map-get($spacers, 3);
+        @extend %toctree-custom-link;
+    }
+
+    a[href="#"] {
+        color: $o-gray-color;
+        font-weight: $font-weight-bold;
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .toctree-l3 > a {
+        --o-link-fontweight: #{$font-weight-medium};
+    }
+}
+
+article.doc-body {
+    position: relative;
+    padding-top: $o-padding-s;
+
+    .o_git_link {
+        @include o-position-absolute($top: 0px, $right: $o-margin-s);
+        @include font-size($font-size-sm);
+
+        @include media-breakpoint-up(lg) {
+            @include o-position-absolute($top: 10px, $right: $o-margin-s);
         }
 
-        .container .container:not([class^="col"]) {
+        i {
+            margin-right: .2rem;
+        }
+    }
+
+    // Search items highlighted
+    span.highlighted {
+        background-color: lighten($warning, 15%);
+    }
+
+    section {
+        margin-bottom: $o-margin-m;
+
+        > h1 {
+            margin-bottom: $o-margin-s;
+            color: $secondary;
+            font-weight: $font-weight-bolder;
+
+            @include media-breakpoint-up(lg) {
+                max-width: calc(100% - 120px);
+            }
+        }
+
+        > h2 {
+            margin-bottom: $o-margin-s;
+            padding-bottom: .3rem;
+            border-bottom: 1px solid $o-gray-border;
+            font-family: $o-font-family-serif;
+            color: $o-gray-color;
+        }
+
+        > h3 {
+            font-size: $font-size-base * 1.3;
+            font-weight: $font-weight-bold;
+        }
+
+        img {
+            margin-bottom: $o-margin-s;
+        }
+
+        img:not(.o-no-modal) {
+            cursor: pointer;
+        }
+
+        iframe {
+            margin-bottom: $o-margin-s;
+        }
+
+        p > img {
+            margin-bottom: 0;
             padding: 0;
-            margin: 0;
+            border: none;
         }
 
-        ul, ol {
-            text-align: left;
-        }
+        .figure {
+            .caption, .caption-text {
+                font-weight: $font-weight-bold;
+                color: $o-gray;
+            }
 
-        ol {
-            ol {
-                list-style: lower-alpha;
-                > li:before {
-                    content: none;
+            .caption, .caption-text, .legend, .legend p {
+                margin: 0 auto;
+                font-style: italic;
+            }
+
+            @include media-breakpoint-up(md) {
+                &:not([class^="col"]) .legend {
+                    max-width: 60%;
                 }
             }
         }
+
+        a.headerlink {
+            line-height: 0;
+            visibility: hidden !important;
+            text-decoration: none;
+            font-size: 0;
+
+            &:before {
+                content: "\a0";
+            }
+
+            &:after {
+                content: '#{$i-link}';
+                visibility: hidden;
+                opacity: 0;
+                transition: all, .1s;
+                margin: 0 0 0 .3rem;
+                color: $o-gray-light;
+                font-family: icomoon, sans-serif !important;
+                @include font-size($font-size-base);
+            }
+        }
+
+        *:hover > a.headerlink:after {
+            // This makes permalinks only visible on hover.
+            visibility: visible;
+            opacity: 1;
+        }
+
+        table.table {
+            @include media-breakpoint-down(lg){
+                display: block;
+                overflow-x: auto;
+
+                code {
+                    overflow-wrap: break-word;
+                }
+            }
+        }
+    }
+}
+
+div[class^="highlight"] {
+    // This styles the consoles like read-the-doc's consoles
+    overflow-x: auto;
+    margin: 1px 0 24px 0;
+    border: 1px solid $o-gray-border;
+    border-radius: $border-radius;
+
+    div[class^="highlight"] {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    pre {
+        display: block;
+        overflow: auto;
+        white-space: pre;
+        margin: 0;
+        padding: 1rem;
+    }
+}
+
+iframe {
+    max-width: 100%;
+}
+
+.container .container:not([class^="col"]) {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    text-align: left;
+}
+
+ol ol {
+    list-style: lower-alpha;
+
+    > li:before {
+        content: none;
+    }
+}
+
+//------------------------------------------------------------------------------
+// Markups
+// (see https://www.odoo.com/documentation/master/contributing/documentation/rst_cheat_sheet.html#markups)
+//------------------------------------------------------------------------------
+
+// Technical Terms (Literals)
+.o_code, .sig [class^="sig-"] {
+    @include o-code;
+}
+
+.o_code {
+    padding: 0 .3rem;
+    border-radius: $border-radius;
+
+//File
+    &.file {
+        padding-right: .4rem;
+        background-color: $blue-100;
+        font-family: $font-family-base;
+        font-weight: $o-font-weight-medium;
+        font-style: italic;
+        color: $blue-700;
+    }
+}
+
+// Definitions
+.dfn{
+    @include font-size($font-size-sm);
+    line-height: 1;
+    color: $blue-600;
+    font-weight: $font-weight-bold;
+
+    &:before {
+        content:'?';
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin: 0 .1rem;
+        border: 2px solid $blue-600;
+        border-radius: 20px;
+        text-align: center;
+        color: $blue-600;
+        font-size: 12px;
+        font-weight: $font-weight-bolder;
+        font-style: normal;
+    }
+}
+
+//Abbreviations
+abbr {
+    text-underline-offset: 2px;
+
+    &[title="Pull Request"] {
+        @include o-easter-egg();
+    }
+}
+
+//GUI Element & Menu Selection
+.guilabel, .menuselection {
+    font-weight: $font-weight-bold;
+}
+
+// API and Reference Styles
+//(ex: https://www.odoo.com/documentation/master/developer/reference/backend/orm.html#fields)
+
+.sig {
+    font-size: 0.875rem;
+    .sig-prename {
+        padding-left: .3rem;
+
+        &+ .sig-name {
+            padding-right: .3rem;
+        }
+    }
+
+    .sig-name:first-of-type {
+        padding-left: .3rem;
+    }
+
+    .sig-name:last-of-type {
+        padding-right: .3rem;
+    }
+
+    em.property + .sig-name {
+        padding-left: .3rem;
+    }
+
+    .sig-paren:last-of-type {
+        padding-right: .3rem;
+    }
+}
+
+dl.py, dl.js, dl.o-definition-list {
+    > dd {
+        margin-top: -0.075rem;
+        padding-left: $o-padding-s;
+        padding-top: $o-padding-xs;
+        border-left: 3px solid $o-literals-border;
+    }
+
+    &.class em.property {
+        font-size: $font-size-sm;
+
+        &:first-child {
+            border-bottom: 3px solid $o-literals-border;
+        }
+
+        &:not(:first-child) {
+            @include o-code;
+            padding: 0 .3rem;
+        }
+    }
+}
+
+// The field-lists are generated Parameters and Arguments
+// within the References (ex: https://www.odoo.com/documentation/master/developer/reference/backend/orm.html#odoo.fields.Field)
+dl.field-list {
+    padding: .5rem;
+    border: 1px solid $o-gray-border;
+    @include font-size($font-size-sm);
+
+    @include media-breakpoint-down(lg) {
+        display: block;
+    }
+
+    > dt {
+        padding-left: 0;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+
+        li:not(:last-child) {
+            padding-bottom: $o-padding-xs;
+        }
+    }
+}
+
+dl:not([class]) dd {
+    margin-left: $o-margin-s;
+}
+
+// Child of source-code URL
+// ex: https://www.odoo.com/documentation/16.0/developer/reference/backend/orm.html#odoo.models.AbstractModel
+span.viewcode-link {
+    float: none;
+    margin-left: .3rem;
+}
 
 //------------------------------------------------------------------------------
 // Alerts
 //------------------------------------------------------------------------------
-// alert-info
-// alert-warning
-// alert-danger
-// alert-go_to
-// alert-exercise
-// alert-success // removed : never used in doc
-        .alert {
-            position: relative;
-            display: block;
-            border-radius: 0;
-            border-width: 0 0 0 3px;
-            @include font-size($font-size-secondary);
 
-            code {
-                background-color: $white !important;
-            }
+.alert {
+    border-width: 0 0 0 $alert-border-width;
 
-            > p , > ul {
-                margin-bottom: .5rem;
+    > *:not(.sphinx-tabs) .o_code, > *:not(.sphinx-tabs) div[class^="highlight"] {
+        border: 1px solid var(--o-alert-code-border-color,#{$o-gray-border}) ;
+        background-color: $white !important;
+        color: inherit;
+    }
+
+    > p , > ul {
+        margin-bottom: .5rem;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+
+    > h3, > .alert-title {
+        margin: 0 0 10px 0;
+        @include font-size($h5-font-size);
+        line-height: 1em;
+        font-weight: $font-weight-bolder;
+
+        &:before {
+            content: var(--o-alert-icon, #{$o-alert-default-icon});
+            @include o-inline-icon(0 $o-icon-margin 0 0, baseline, inherit, inherit);
+
+            @include media-breakpoint-down(md) {
+                display:none;
             }
-            > *:last-child {
+        }
+        .graphviz {
+            overflow-x: auto;
+            white-space: nowrap;
+            img {
+                max-width: unset;
+            }
+        }
+    }
+
+    // Custom Admonitions
+    &[class^="admonition"] {
+        --o-alert-icon: '#{$i-info}';
+        --o-alert-code-border-color: tint-color($info, 30%);
+
+        $background: shift-color($info, $alert-bg-scale);
+        $border: shift-color($info, $alert-border-scale);
+        $color: shift-color($info, $alert-color-scale);
+
+        @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
+            $color: mix($info, color-contrast($background), abs($alert-color-scale));
+        }
+
+        @include alert-variant($background, $border, $color);
+    }
+
+    // Note
+    &.alert-primary {
+        --o-alert-code-border-color: #{tint-color($primary, 50%)};
+        --o-alert-icon: '#{$i-note}';
+    }
+
+    // See Also
+    &.alert-secondary {
+        --o-alert-icon: '#{$i-article}';
+        --o-alert-code-border-color: #{tint-color($secondary, 30%)};
+
+        a {
+            color: $secondary;
+        }
+    }
+
+    // Tip
+    &.alert-tip {
+        --o-alert-icon: '#{$i-lightbulb}';
+        --o-alert-code-border-color: #{$o-gray-border};
+
+        $background: $o-gray-bg;
+        $border: shift-color($primary, $alert-border-scale);
+        $color: shift-color($primary, $alert-color-scale);
+
+        @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
+            $color: mix($primary, color-contrast($background), abs($alert-color-scale));
+        }
+
+        @include alert-variant($background, $border, $color);
+    }
+
+    // Example
+    &.alert-success {
+        --o-alert-icon: '#{$i-knowledge}';
+        --o-alert-code-border-color: #{tint-color($success, 50%)};
+    }
+
+    // Warning & Important
+    &.alert-warning {
+        --o-alert-icon: '#{$i-warning}';
+        --o-alert-code-border-color: #{tint-color($warning, 50%)};
+    }
+
+    // Danger
+    &.alert-danger {
+        --o-alert-icon: '#{$i-danger}';
+        --o-alert-code-border-color: #{tint-color($danger, 50%)};
+    }
+
+    // Exercises
+    &.alert-dark {
+        --o-alert-icon: '#{$i-exercise}';
+        --o-alert-code-border-color: $dark;
+
+        background: $gray-200;
+    }
+}
+
+//------------------------------------------------------------------------------
+// Spoilers
+//------------------------------------------------------------------------------
+
+.o_spoiler {
+    $background: $gray-200;
+    $border: shift-color($accordion-color, $alert-border-scale);
+    $color: shift-color($accordion-color, $alert-color-scale);
+
+    @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
+        $color: mix($dark, color-contrast($background), abs($alert-color-scale));
+    }
+
+    @include alert-variant($background, $border, $color);
+
+    .accordion-button {
+        &::after {
+            margin: 0 $o-icon-margin 0 0;
+        }
+
+        &.collapsed::after {
+            transform: rotate(-90deg);
+        }
+    }
+
+    .accordion-body {
+        > *:first-child {
+            margin-top: $o-margin-s;
+        }
+
+        > p , > ul {
+            margin-bottom: .5rem;
+        }
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+
+        code, div[class^="highlight"] {
+            border-color: tint-color($dark, 50%);
+
+            &:first-child:last-child {
                 margin-bottom: 0;
-            }
-
-            > h3, > .alert-title {
-                line-height: 1em;
-                margin: 0 0 10px 0;
-                @include font-size($font-size-base);
-                font-weight: $fw_bold;
-
-                &:before {
-                    @include o-inline-icon($i-info, 0 .2rem 0 0, baseline, $font-size-base, inherit);
-                    @include media-breakpoint-down(md) {
-                        display:none;
-                    }
-                }
-            }
-
-            &.alert-info, &[class^="admonition"] {
-                border-color: tint-color($brand-info, 30%);
-                background-color: tint-color($brand-info, 85%);
-                color: shade-color($brand-info, 35%);
-
-                > .alert-title, > h3 {
-                    color: $brand-info;
-                    &:before {
-                        content: '#{$i-info}';
-                    }
-                }
-            }
-
-            &.alert-note {
-                border-color: shade-color($info, 30%);
-                background-color: $gray-lightest;
-                color: shade-color($info, 55%);
-
-                > .alert-title, > h3 {
-                    color: shade-color($info, 45%);
-                    &:before {
-                        content: '#{$i-note}';
-                    }
-                }
-            }
-
-            &.alert-tip, &.tip {
-                border-color: shade-color($color-alpha, 10%);
-                background-color: $gray-lightest;
-                color: shade-color($color-alpha, 55%);
-
-                > .alert-title, > h3 {
-                    color: shade-color($color-alpha, 40%);
-                    &:before {
-                        content: '#{$i-lightbulb}';
-                        @include font-size(1.2rem);
-                    }
-                }
-            }
-
-            &.alert-warning, &.warning {
-                border-color: $brand-warning;
-
-                > .alert-title, > h3 {
-                    color: shade-color($brand-warning, 10%);
-                    &:before {
-                        content: '#{$i-warning}';
-                    }
-                }
-            }
-
-            &.alert-danger {
-                border-color: $danger;
-
-                > .alert-title, > h3 {
-                    color: darken($brand-danger,20%);
-                    &:before {
-                        content: '#{$i-danger}';
-                    }
-                }
-            }
-
-            &.alert-exercise {
-                border-color: tint-color($doc_exercise, 30%);
-                background-color: tint-color($doc_exercise, 90%);
-                color: shade-color($doc_exercise, 35%);
-
-                > .alert-title, > h3 {
-                    color: shade-color($doc_exercise, 35%);
-                }
-
-                > .alert-title:before, > h3:before {
-                    content: '#{$i-exercise}';
-                }
-            }
-
-            &.alert-go_to {
-                border-color: $o-violet;
-                background-color: $gray-lightest;
-                @include media-breakpoint-up(lg){
-                    display: inline-block;
-                    width: calc(50% - 1rem);
-                }
-
-                a {
-                    color: $o-violet-dark;
-                }
-
-                > .alert-title, > h3 {
-                    color: $o-violet-dark;
-                }
-
-                > .alert-title:before, > h3:before {
-                    content: '#{$i-arrow-right}';
-                }
             }
         }
     }
 }
+
+//------------------------------------------------------------------------------
+// Cards
+//------------------------------------------------------------------------------
+
+.o_toctree_card {
+
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+
+        .card {
+            background-color: rgba($teal-100, 0.2);
+        }
+
+    }
+
+    .card {
+        transition: all 200ms;
+    }
+
+}
+
+//------------------------------------------------------------------------------
+// Content Tabs
+//------------------------------------------------------------------------------
+
+.sphinx-tabs {
+    margin-bottom: $o-margin-s;
+    padding: 0;
+
+    div[role="tablist"] {
+        display: inline-flex;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: clip;
+    }
+
+    *:focus-visible {
+        outline: none;
+    }
+
+    button {
+        display: inline;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .sphinx-tabs-tab {
+        padding: $o-padding-xs $o-padding-s;
+        border: 0;
+        border-top: solid 1px $o-gray-border;
+        background-color: $o-gray-bg;
+        color: lighten($o-gray-color, 15%);
+
+        &:hover {
+            &:not([aria-selected="true"]) {
+                color: $o-gray-color;
+                background-color: darken($o-gray-bg, 3%);
+                transition: color .2s, background .2s;
+            }
+        }
+
+        &:first-of-type {
+            border-left: solid 1px $o-gray-border;
+            border-radius: $border-radius 0 0 0;
+        }
+
+        &:last-of-type {
+            border-right: solid 1px $o-gray-border;
+            border-radius: 0 $border-radius 0 0;
+        }
+
+        &:focus {
+            z-index: unset;
+        }
+
+        &[aria-selected="true"] {
+            font-weight: $font-weight-bolder;
+            border-left: 1px solid $o-gray-border;
+            border-right: 1px solid $o-gray-border;
+            color: $o-gray-color;
+            background: $white;
+            &:hover {
+                cursor: unset;
+            }
+        }
+    }
+
+    .sphinx-tabs-panel {
+        padding: $o-padding-s;
+        border: 1px solid $o-gray-border;
+        background: $white;
+        color: $o-gray-color;
+        border-radius: 0 $border-radius $border-radius $border-radius;
+
+        &:focus {
+            outline: none;
+        }
+
+        > div[class^="highlight-"]{
+            border: 0 !important;
+        }
+
+        > *:last-child {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
 //------------------------------------------------------------------------------
 // Footer
 //------------------------------------------------------------------------------
+
 footer {
     .o_get_help {
-        padding-top: $padding-l;
-        padding-bottom: $padding-l;
-        background: $gray-lighter;
+        padding-top: $o-padding-l;
+        padding-bottom: $o-padding-l;
+        background: $o-gray-bg;
+
         @include media-breakpoint-up(lg) {
-            padding-left: calc(#{$o-side-nav-width} + #{$padding-l})
+            padding-left: calc(#{$o-side-nav-width} + #{$o-padding-l})
         }
 
-        h5 {
+        h4 {
+            margin-bottom: $o-margin-s;
             color: $secondary;
-            font-size: 20px;
-            font-weight: $fw_bold;
-            margin-bottom: 1.5rem;
+            font-weight: $font-weight-bolder;
         }
 
     }

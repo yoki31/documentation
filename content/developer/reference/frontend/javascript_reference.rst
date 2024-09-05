@@ -1,11 +1,10 @@
-
 .. highlight:: javascript
 
 .. default-domain:: js
 
-=====================
+====================
 Javascript Reference
-=====================
+====================
 
 This document presents the Odoo Javascript framework. This
 framework is not a large application in term of lines of code, but it is quite
@@ -15,7 +14,7 @@ records in the database.  It is even possible to use the web client to modify
 the interface of the web client.
 
 Overview
-=========
+========
 
 The Javascript framework is designed to work with three main use cases:
 
@@ -53,7 +52,7 @@ action manager) actually creates and destroys many sub components. The state is
 highly dynamic, and each widget could be destroyed at any time.
 
 Overview of web client JS code
--------------------------------------
+------------------------------
 
 Here, we give a very quick overview on the web client code, in
 the *web/static/src/js* addon. Note that it is deliberately not exhaustive.
@@ -105,7 +104,7 @@ are a few things you can try to solve the issue:
 
 
 Loading Javascript Code
-========================
+=======================
 
 Large applications are usually broken up into smaller files, that need to be
 connected together.  Some file may need to use some part of code defined in
@@ -145,8 +144,6 @@ not the primary way to write javascript code.
 
 .. note::
     Native javascript modules are the primary way to define javascript code.
-
-
 
 Class System
 ============
@@ -204,7 +201,6 @@ framework will secretly rebind a special method: *_super* to the currently
 called method.  This allows us to use *this._super* whenever we need to call a
 parent method.
 
-
 .. code-block:: javascript
 
     var Animal = require('web.Animal');
@@ -248,7 +244,6 @@ of them in the new class.
 In this example, the *Hamster* class is a subclass of Animal, but it also mix
 the DanceMixin in.
 
-
 Patching an existing class
 --------------------------
 
@@ -272,7 +267,6 @@ This is obviously a dangerous operation and should be done with care.  But with
 the way Odoo is structured, it is sometimes necessary in one addon to modify
 the behavior of a widget/class defined in another addon.  Note that it will
 modify all instances of the class, even if they have already been created.
-
 
 Widgets
 =======
@@ -311,8 +305,9 @@ Here is an example of a basic counter widget:
     });
 
 For this example, assume that the template *some.template* (and is properly
-loaded: the template is in a file, which is properly defined in the *qweb* key
-in the module manifest) is given by:
+loaded: the template is in a file, which is properly defined in the assets of
+the module manifest ``'assets': {'web.assets_qweb': [...]}``,  see
+:ref:`assets <reference/assets>`.) is given by:
 
 .. code-block:: xml
 
@@ -523,7 +518,6 @@ Widget API
     :param Element element: a DOM element or jQuery object to set as
                             the widget's DOM root
 
-
 Inserting a widget in the DOM
 -----------------------------
 
@@ -557,7 +551,7 @@ and are charged with three tasks:
 * starting the widget, and returning the result of starting it
 
 Widget Guidelines
-----------------------
+-----------------
 
 * Identifiers (``id`` attribute) should be avoided. In generic applications
   and modules, ``id`` limits the re-usability of components and tends to make
@@ -667,7 +661,6 @@ in order to make the web client slightly lighter.  In that case, we can use the
 With this, the *Counter* widget will load the xmlDependencies files in its
 *willStart* method, so the template will be ready when the rendering is performed.
 
-
 Event system
 ============
 
@@ -759,9 +752,8 @@ The previous example can be updated to use the custom event system:
 
     ... this.trigger_up('valuechange', {value: someValue});
 
-
 Registries
-===========
+==========
 
 A common need in the Odoo ecosystem is to extend/change the behaviour of the
 base system from the outside (by installing an application, i.e. a different
@@ -797,7 +789,6 @@ action registry
   is where the action manager looks up whenever it needs to create a client
   action.  In version 11, each value should simply be a subclass of *Widget*.
   However, in version 12, the values are required to be *AbstractAction*.
-
 
 Communication between widgets
 =============================
@@ -866,7 +857,6 @@ Cross component
           },
       });
 
-
     In this example, we use the bus exported by *web.core*, but this is not
     required. A bus could be created for a specific purpose.
 
@@ -883,7 +873,7 @@ events, these events bubble up to a service provider, which will ask a service
 to perform a task, then maybe return an answer.
 
 Service
---------
+-------
 
 A service is an instance of the *AbstractService* class.  It basically only has
 a name and a few methods.  Its job is to perform some work, typically something
@@ -914,7 +904,6 @@ For services to work, it is necessary that we have a service provider ready to
 dispatch the custom events.  In the *backend* (web client), this is done by the
 main web client instance. Note that the code for the service provider comes from
 the *ServiceProviderMixin*.
-
 
 Widget
 ------
@@ -974,7 +963,7 @@ may need to directly call a controller (available on some route).
     });
 
 Notifications
-==============
+=============
 
 The Odoo framework has a standard way to communicate various information to the
 user: notifications, which are displayed on the top right of the user interface.
@@ -1009,9 +998,9 @@ The notification system in Odoo is designed with the following components:
 
 - an helper function in *ServiceMixin*: *displayNotification*
 
-
 Displaying a notification
 -------------------------
+
 The most common way to display a notification is by using the method that come
 from the *ServiceMixin*:
 
@@ -1101,7 +1090,6 @@ the class variable SystrayMenu.items.
 
     SystrayMenu.Items.push(MySystrayWidget);
 
-
 Ordering
 --------
 
@@ -1114,7 +1102,6 @@ left).
 .. code-block:: javascript
 
     MySystrayWidget.prototype.sequence = 100;
-
 
 Translation management
 ======================
@@ -1133,7 +1120,7 @@ to be translated.  The way it currently works is the following:
   is found.
 
 Note that translations are explained in more details, from the server point of
-view, in the document :doc:`/developer/misc/i18n/translations`.
+view, in the document :doc:`/developer/howtos/translations`.
 
 There are two important functions for the translations in javascript: *_t* and
 *_lt*.  The difference is that *_lt* is lazily evaluated.
@@ -1210,7 +1197,7 @@ client for everyone), and for data which is required early in the initialization
 process.
 
 Views
-======
+=====
 
 The word 'view' has more than one meaning. This section is about the design of
 the javascript code of the views, not the structure of the *arch* or anything
@@ -1218,7 +1205,6 @@ else.
 
 In 2017, Odoo replaced the previous view code with a new architecture.  The
 main need was to separate the rendering logic from the model logic.
-
 
 Views (in a generic sense) are now described with  4 pieces: a View, a
 Controller, a Renderer and a Model.  The API of these 4 pieces is described in
@@ -1910,10 +1896,12 @@ many2one (FieldMany2One)
 
   Options:
 
-  - no_create: prevent the creation of related records
   - quick_create: allow the quick creation of related records (default: true)
-  - no_quick_create: prevent the quick creation of related records (don't ask me)
-  - no_create_edit: same as no_create, maybe...
+  - no_create: prevent the creation of related records - hide both the 'Create "xxx"'
+    and "Create and Edit..." dropdown menu items (default: false)
+  - no_quick_create: prevent the quick creation of related records - hide the 'Create "xxx"'
+    dropdown menu item (default: false)
+  - no_create_edit: hide the "Create and Edit..." dropdown menu item (default: false)
   - create_name_field: when creating a related record, if this option is set, the value of the *create_name_field* will be filled with the value of the input (default: *name*)
   - always_reload: boolean, default to false.  If true, the widget will always
     do an additional name_get to fetch its name value.  This is used for the
@@ -2091,6 +2079,7 @@ reference (FieldReference)
 
 Widgets
 -------
+
 week_days (WeekDays)
   This field displays a list of checkboxes for week days, 1 checkbox for each day
   and allow the user to select a subset of the choices.
@@ -2102,8 +2091,8 @@ week_days (WeekDays)
 Client actions
 ==============
 
-The idea of a client action is a customized widget that is integrated in the
-web client interface, just like a *act_window_action*.  This is useful when
+The idea of a client action is a customized widget that is integrated into the
+web client interface, just like an *act_window_action*.  This is useful when
 you need a component that is not closely linked to an existing view or a
 specific model.  For example, the Discuss application is actually a client
 action.
@@ -2112,11 +2101,11 @@ A client action is a term that has various meanings, depending on the context:
 
 - from the perspective of the server, it is a record of the model *ir_action*,
   with a field *tag* of type char
-- from the perspective of the web client, it is a widget, which inherit from
+- from the perspective of the web client, it is a widget, which inherits from
   the class AbstractAction, and is supposed to be registered in the
   action registry under the corresponding key (from the field char)
 
-Whenever a menu item is associated to a client action, opening it will simply
+Whenever a menu item is associated with a client action, opening it will simply
 fetch the action definition from the server, then lookup into its action
 registry to get the Widget definition at the appropriate key, and finally, it
 will instantiate and append the widget to the proper place in the DOM.
@@ -2124,9 +2113,9 @@ will instantiate and append the widget to the proper place in the DOM.
 Adding a client action
 ----------------------
 
-A client action is a widget which will control the part of the screen below the
+A client action is a widget that will control the part of the screen below the
 menu bar.  It can have a control panel, if necessary.  Defining a client action
-can be done in two steps: implementing a new widget, and registering the widget
+can be done in two steps: implementing a new widget and registering the widget
 in the action registry.
 
 Implementing a new client action.
@@ -2163,11 +2152,10 @@ Registering the client action:
           <field name="tag">my-custom-action</field>
       </record>
 
-
 Using the control panel
 -----------------------
 
-By default, the client action does not display a control panel.  In order to
+By default, the client action does not display a control panel. To
 do that, several steps should be done.
 
 - Set the *hasControlPanel* to *true*.
@@ -2182,7 +2170,7 @@ do that, several steps should be done.
       });
 
   .. warning::
-      when the ``loadControlPanel`` is set to true, the client action will automatically get the content of a search view or a control panel view.
+      When the ``loadControlPanel`` is set to true, the client action will automatically get the content of a search view or a control panel view.
       In this case, a model name should be specified like this:
 
       .. code-block:: javascript
@@ -2222,8 +2210,8 @@ do that, several steps should be done.
               });
           }
 
-The ``updateControlPanel`` is the main method to customize the content in controlpanel.
-For more information, look into the `control_panel_renderer.js <https://github.com/odoo/odoo/blob/13.0/addons/web/static/src/js/views/control_panel/control_panel_renderer.js#L130>`_ file.
+The ``updateControlPanel`` is the main method to customize the content in the control panel.
+For more information, look into the `control_panel_renderer.js <{GITHUB_PATH}/addons/web/static/src/js/views/control_panel/control_panel_renderer.js#L130>`_ file.
 
 .. _glob:
     https://en.wikipedia.org/wiki/Glob_(programming)
@@ -2244,5 +2232,3 @@ For more information, look into the `control_panel_renderer.js <https://github.c
     https://api.jquery.com/delegate/
 
 .. _datepicker: https://github.com/Eonasdan/bootstrap-datetimepicker
-
-

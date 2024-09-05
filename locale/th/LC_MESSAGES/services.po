@@ -1,0 +1,2019 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the Odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Odoo Thaidev <odoothaidev@gmail.com>, 2022
+# Martin Trigaux, 2022
+# Wichanon Jamwutthipreecha, 2023
+# Wil Odoo, 2024
+# Rasareeyar Lappiam, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-29 08:05+0000\n"
+"PO-Revision-Date: 2021-11-02 08:49+0000\n"
+"Last-Translator: Rasareeyar Lappiam, 2024\n"
+"Language-Team: Thai (https://app.transifex.com/odoo/teams/41243/th/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../../content/applications/services.rst:5
+msgid "Services"
+msgstr "บริการ"
+
+#: ../../content/applications/services/field_service.rst:8
+msgid "Field Service"
+msgstr "การบริการภาคสนาม"
+
+#: ../../content/applications/services/field_service.rst:11
+msgid ""
+"`Odoo Tutorials: Field Service <https://www.odoo.com/slides/field-"
+"service-49>`_"
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:3
+msgid "User default warehouse"
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:5
+msgid ""
+"Setting up a **default warehouse** can be useful for field technicians who "
+"keep a supply in their van or those who always resupply from the same "
+"warehouse. It also allows field workers to switch between warehouses from "
+"their profiles."
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:9
+msgid ""
+"Products in sales orders created during field interventions are always "
+"pulled from the default warehouse, keeping the inventory accurate."
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:13
+msgid ":doc:`../../inventory_and_mrp/inventory`"
+msgstr ":doc:`../../inventory_and_mrp/inventory`"
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:16
+msgid "Configuration"
+msgstr "การกำหนดค่า"
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:18
+msgid ""
+"To set up a user default warehouse, the :doc:`storage locations "
+"<../../inventory_and_mrp/inventory/management/warehouses/warehouses_locations>`"
+" feature needs to be activated in the **Inventory** app. It is also "
+"necessary to have more than one warehouse in your database."
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:23
+msgid ""
+"You can either set it up :ref:`for your profile <default-warehouse/my-"
+"profile>`, or :ref:`for all users <default-warehouse/all-users>`."
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:27
+msgid ""
+":doc:`../../inventory_and_mrp/inventory/management/warehouses/warehouses_locations`"
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:32
+msgid "For your profile"
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:34
+msgid ""
+"To set up a default warehouse for yourself, click your **profile icon** in "
+"the upper right corner of the screen, then, go to :menuselection:`My Profile"
+" --> Preferences --> Default Warehouse`. Select the default warehouse from "
+"the drop-down menu."
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:41
+msgid "For all users"
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:43
+msgid ""
+"To set up a default warehouse for a specific user, go to "
+":menuselection:`Settings --> Users --> Manage users`, select a user, then go"
+" to the :guilabel:`Preferences` tab. Scroll down to :guilabel:`Inventory`, "
+"and select the default warehouse from the drop-down menu."
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst-1
+msgid "Selection of a default warehouse on a user profile."
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:51
+msgid "Use in field service tasks"
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:53
+msgid ""
+"Once a default warehouse has been configured for a user, the materials used "
+"for a sales order related to a Field Service task are pulled from that "
+"specific warehouse. Open the related sales order, go to the :guilabel:`Other"
+" Info` tab, then scroll down to :guilabel:`Delivery`. The default warehouse "
+"is applied correctly."
+msgstr ""
+
+#: ../../content/applications/services/field_service/default_warehouse.rst:58
+msgid ""
+"Once the Field Service task is marked as done, the stock of the default "
+"warehouse is automatically updated."
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:3
+msgid "Onsite interventions planning"
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:6
+msgid "From a sales order"
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:8
+msgid ""
+"Allowing your sales team to open onsite interventions creates a seamless "
+"experience for your customers. They can receive a quotation they first have "
+"to approve before the work even starts."
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:11
+msgid ""
+"Go to :menuselection:`Field Service --> Configuration --> Products` and "
+"create or edit a product."
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:13
+msgid ""
+"Under the :guilabel:`General Information` tab, select :guilabel:`Service` as"
+" :guilabel:`Product Type`."
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:15
+msgid ""
+"Under the :guilabel:`Sales` tab, select :guilabel:`Timesheets on tasks` as "
+":guilabel:`Service Invoicing Policy`."
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:17
+msgid ""
+"Select :guilabel:`Create a task in an existing project` as "
+":guilabel:`Service Tracking`."
+msgstr ""
+"เลือก :guilabel:`สร้างงานในโปรเจ็กต์ที่มีอยู่` เป็น "
+":guilabel:`การติดตามบริการ`"
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:18
+msgid "Select your :guilabel:`Project`."
+msgstr "เลือก :guilabel:`โปรเจ็กต์` ของคุณ"
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:19
+msgid "If you use them, select your :guilabel:`Worksheet Template`, and save."
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst-1
+msgid ""
+"Product configuration to create tasks from sales orders in Odoo Field "
+"Service"
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:25
+msgid ""
+"From the :doc:`Sales <../../sales/sales>` app, create a quotation with the "
+"product and confirm it. A task is automatically set up under your Field "
+"Service project. It is directly accessible from the sales order."
+msgstr ""
+"จากแอป :doc:`การขาย <../../sales/sales>` "
+"ให้สร้างใบเสนอราคาพร้อมสินค้าและยืนยัน "
+"งานได้รับการตั้งค่าโดยอัตโนมัติภายใต้โปรเจ็กต์บริการภาคสนามของคุณ "
+"สามารถเข้าถึงได้โดยตรงจากใบสั่งขาย"
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst-1
+msgid "Field Service task on a sales order in Odoo Sales"
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:34
+msgid "From helpdesk tickets"
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:36
+msgid ""
+"The integration with the :doc:`Helpdesk <../helpdesk>` app lets your "
+"helpdesk team manage intervention requests directly. Planning field service "
+"tasks from tickets speeds up your processes."
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:40
+msgid "Configure the helpdesk team"
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:42
+msgid ""
+"Go to :menuselection:`Helpdesk --> Configuration --> Helpdesk Teams`. Select"
+" a team and enable :guilabel:`Onsite Interventions`."
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst-1
+msgid "Onsite interventions settings in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst:49
+msgid ""
+"The helpdesk tickets of the team now display the :guilabel:`Plan "
+"Intervention` button. Click on it to create a new task under your field "
+"service project."
+msgstr ""
+"ขณะนี้ ทิกเก็ต Helpdesk ของทีมแสดงปุ่ม :guilabel:`วางแผนการดำเนินการ` "
+"คลิกที่ภาพเพื่อสร้างงานใหม่ภายใต้โปรเจ็กต์บริการภาคสนามของคุณ"
+
+#: ../../content/applications/services/field_service/onsite_interventions.rst-1
+msgid "Plan intervention from helpdesk tickets in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk.rst:8
+msgid "Helpdesk"
+msgstr "ดูแลช่วยเหลือ"
+
+#: ../../content/applications/services/helpdesk.rst:11
+msgid "`Odoo Tutorials: Helpdesk <https://www.odoo.com/slides/helpdesk-51>`_"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced.rst:5
+msgid "Advanced"
+msgstr "ระดับสูง"
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:3
+msgid "After Sales Features"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:5
+msgid ""
+"As your business grows, having the right tool to support your helpdesk team "
+"on recording, tracking and managing issues raised easy and efficiently, is "
+"key. Odoo’s Helpdesk application allows you to generate credit notes, manage"
+" returns, products, repairs, grant coupons, and even plan onsite "
+"interventions from a ticket’s page."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:11
+msgid "Set up the after sales services"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:13
+msgid ""
+"Go to :menuselection:`Helpdesk --> Configuration --> Helpdesk Teams` and "
+"enable the after sales options: *Refunds, Returns, Coupons, Repairs and "
+"Onsite Interventions*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:20
+msgid "Generate credit notes from tickets"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:22
+msgid ""
+"You can use a credit note to refund a customer or adjust the amount due. For"
+" that, simply go to your ticket page, click on *Refund* and select the "
+"corresponding *Invoice*. Clicking on *Reverse* generates a credit note, and "
+"you can *Post* it while still being in the *Helpdesk* app."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:30
+msgid "Allow product returns from tickets"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:32
+msgid ""
+"The process of a product return from your customer back to your warehouse is"
+" taken into action when, at the ticket page, you choose the option *Return*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:39
+msgid "Grant coupons from tickets"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:41
+msgid ""
+"First, be sure to have your *Coupon Program* planned in the *Sales* or "
+"*Website* application. Then, in *Helpdesk*, open your ticket, click on "
+"*Coupon*, and choose the respective one."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:48
+msgid "Repairs from tickets"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:50
+msgid ""
+"Clicking on *Repair* option, on your ticket page, a new repair order form is"
+" shown. Fill in the information as needed and choose the next step."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:57
+msgid "Plan onsite interventions from tickets"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:59
+msgid ""
+"At the ticket's page click on *Plan Intervention*, and set up your onsite "
+"intervention exactly the same way as if you were on the *Field Service* "
+"application."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/after_sales.rst:67
+msgid ""
+"`Coupons <https://www.odoo.com/slides/slide/coupon-"
+"programs-640?fullscreen=1>`_"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:3
+msgid "Allow customers to close their tickets"
+msgstr "อนุญาตให้ลูกค้าปิดทิกเก็ตได้"
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:5
+msgid ""
+"Allowing customers to close their own tickets gives them autonomy and "
+"minimizes misunderstandings around when an issue is considered solved or "
+"not. This results in operational capacity for support teams, and higher "
+"satisfaction for the customer."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:10
+msgid "Enable ticket closing"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:12
+msgid ""
+"Start by navigating to :menuselection:`Helpdesk --> Configuration --> "
+"Helpdesk Teams` and choose the appropriate team. Then click :guilabel:`Edit`"
+" and enable :guilabel:`Ticket closing` by checking the field box."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst-1
+msgid "Ticket closing feature in Odoo Helpdesk."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:19
+msgid ""
+"To designate which stage the ticket migrates to once it is closed, navigate "
+"to the ticket pipeline by going to :menuselection:`Helpdesk --> Overview` "
+"and clicking :guilabel:`Tickets` on the team's card."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:23
+msgid ""
+"There are two options: create a new Kanban stage or work with an existing "
+"one. For both scenarios, click the :guilabel:`Settings (gear)` icon next to "
+"the stage name, select :guilabel:`Edit Stage`, and enable :guilabel:`Closing"
+" Stage`. After checking the field box, click :guilabel:`Save` to finish."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:29
+msgid ""
+"If a closing stage is not specified, by default, the ticket is moved to the "
+"last stage in the kanban. If more than one stage is set as a closing stage, "
+"the ticket is placed in the first closing stage column."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:33
+msgid ""
+"With the ticket closing settings now complete, customers can now view the "
+"option to :guilabel:`Close this ticket` when they log into their portal."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst-1
+msgid "Customer view of ticket closing in Odoo Helpdesk."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:40
+msgid "Get reports on tickets closed by customers"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst:42
+msgid ""
+"To analyze the tickets that have been closed by customers, go to "
+":menuselection:`Helpdesk --> Reporting --> Tickets`. Then, click on the "
+":guilabel:`Filters` menu and choose :guilabel:`Add Custom filter`. Next, set"
+" the custom filter parameters to :guilabel:`Closed by partner` and "
+":guilabel:`is true`. Finally, click :guilabel:`Apply`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/close_tickets.rst-1
+msgid ""
+"Filter for tickets closed by customers on Odoo Helpdesk's reporting page."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:3
+msgid "Track and bill time"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:5
+msgid ""
+"*Helpdesk* provides teams with the ability to track the amount of hours "
+"spent working on a ticket, and to bill a customer for that time. Through "
+"integrations with the *Sales*, *Timesheets*, *Project*, and *Accounting* "
+"applications, customers can be charged once the work is completed, or before"
+" it has even begun."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:11
+msgid ""
+"Since the *Track & Bill Time* features require integration with other "
+"applications, enabling them may result in the installation of additional "
+"modules or applications."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:14
+msgid ""
+"Installing a new application on a *One-App-Free* database triggers a 15-day "
+"trial. At the end of the trial, if a paid subscription has not been added to"
+" the database, it will no longer be active or accessible."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:19
+msgid "Track and bill time features configuration"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:21
+msgid ""
+"Before a customer can be invoiced for support services, the *Track & Bill "
+"Time* features **must** be enabled on each *Helpdesk* team individually."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:25
+msgid "Enable track and bill time on a team"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:27
+msgid ""
+"To view and enable the *Track & Bill Time* features on a *Helpdesk* team, "
+"first navigate to :menuselection:`Helpdesk app --> Configuration --> "
+"Helpdesk Teams`. Then, select a team from the list, or create a :doc:`new "
+"Helpdesk team <../overview/getting_started>`. This reveals a team's settings"
+" page."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:32
+msgid ""
+"On the team's settings page, click :guilabel:`Edit`, then scroll to the "
+":guilabel:`Track & Bill Time` section. Tick the boxes labeled "
+":guilabel:`Timesheets` and :guilabel:`Time Billing`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:35
+msgid ""
+"Once the :guilabel:`Timesheets` box is checked, a new field appears, labeled"
+" :guilabel:`Project`."
+msgstr ""
+"เมื่อทำเครื่องหมายที่ช่อง :guilabel:`ระบบบันทึกเวลา` แล้ว "
+"ช่องใหม่จะปรากฏขึ้น โดยมีป้ายกำกับ :guilabel:`โปรเจ็กต์`"
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:38
+msgid ""
+"If this is the first time this feature has been enabled on this database, "
+"the page may need to be manually saved and refreshed before the "
+":guilabel:`Project` field appears."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:41
+msgid ""
+"The project selected in this field represents where all the timesheets for "
+"this team's tickets are recorded. Click into the :guilabel:`Project` drop-"
+"down menu to select a project."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:44
+msgid ""
+"To create a new project where the timesheets are recorded, click into the "
+":guilabel:`Project` drop-down menu, type a name for the project, and then "
+"click :guilabel:`Create` from the drop-down menu beneath."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:48
+msgid ""
+"Click :guilabel:`Save` at the top-left of the page to save any changes."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst-1
+msgid ""
+"The settings page of a Helpdesk team with the track and bill time settings "
+"enabled."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:57
+msgid "Configure service products"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:59
+msgid ""
+"When the :guilabel:`Time Billing` feature is enabled, a new product is "
+"created in the *Sales* app called, *Service on Timesheet*. This product can "
+"be found under :menuselection:`Sales app--> Products --> Products`. Then, "
+"search for `Service on Timesheet` in the :guilabel:`Search...` bar. This is "
+"the product that is used when invoicing for *post-paid support services* "
+"**after** they have been completed."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:65
+msgid ""
+"Select :guilabel:`Service on Timesheet` from the :guilabel:`Products` page. "
+"This reveals the product detail form. The product is configured with the "
+":guilabel:`Product Type` set to :guilabel:`Service`, and the "
+":guilabel:`Invoicing Policy` set to :guilabel:`Based on Timesheets`. Click "
+":guilabel:`Edit` to make any necessary changes to the product record, such "
+"as the :guilabel:`Cost` or :guilabel:`Sales Price`, then click "
+":guilabel:`Save`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst-1
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst-1
+msgid ""
+"The Service on Timesheet product with emphasis on the invoicing policy "
+"field."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:75
+msgid ""
+"In order to invoice for support services *before* the work has been "
+"completed, also known as *prepaid support services*, a separate product with"
+" a different invoicing policy must be created."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:78
+msgid ""
+"To create a new service product, go to :menuselection:`Sales app --> "
+"Products --> Products`, and click :guilabel:`Create`. This reveals a blank "
+"product detail form."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:81
+msgid "On the new product form, add a :guilabel:`Product Name`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:84
+msgid ""
+"Try to use a name that identifies the purpose of the product, for example, "
+"`Prepaid Services`. This makes it easier when adding it to a sales order "
+"later."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:87
+msgid ""
+"Set the :guilabel:`Product Type` to :guilabel:`Service`. Then, set the "
+":guilabel:`Invoicing Policy` to :guilabel:`Prepaid/Fixed Price`. This means "
+"an invoice can be generated and payment can be received for this product, "
+"before any timesheet entries have been recorded for these services."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:95
+msgid ""
+"Finally, set the :guilabel:`Sales Price`, and confirm that the "
+":guilabel:`Unit of Measure` is set to :guilabel:`Hours`. Then, click "
+":guilabel:`Save` to save those configurations."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:99
+msgid "Invoice prepaid support services"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:101
+msgid ""
+"When support services are billed on a fixed price, an invoice can be created"
+" before any work is completed on the issue. In this case, a service product "
+"with the *Invoicing Policy* set to *Prepaid/Fixed Price* would be used, just"
+" like the one created in the :ref:`Configure service products "
+"<helpdesk/configure-service-products>` section."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:107
+msgid "Create prepaid product sales order"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:109
+msgid ""
+"To invoice a customer for prepaid support services, first create a sales "
+"order (SO) with the support services product. To do this, go to "
+":menuselection:`Sales app --> Orders --> Quotations`. Then, click "
+":guilabel:`Create` to reveal a blank quotation form."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:113
+msgid "Then, fill out the quotation form with the customer information."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:115
+msgid ""
+"Go to the :guilabel:`Order Lines` tab of the quotation, and click "
+":guilabel:`Add a Product`. Then, select the *prepaid services product* "
+"configured in the steps :ref:`above <helpdesk/configure-service-products>`. "
+"Update the :guilabel:`Quantity` field with the number of hours."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:120
+msgid ""
+"After updating any other necessary information, :guilabel:`Confirm` the "
+"quotation. This converts the quotation into a :abbr:`SO (sales order)`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:124
+msgid "Create/send invoice for prepaid services"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:126
+msgid ""
+"Once the :abbr:`SO (sales order)` has been confirmed, click the "
+":guilabel:`Create Invoice` button on the sales order form. This opens a "
+":guilabel:`Create invoices` pop-up window."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:129
+msgid ""
+"If no down payment is collected, the :guilabel:`Create Invoice` type can "
+"remain as :guilabel:`Regular invoice`. If a :doc:`down payment "
+"<../../../sales/sales/invoicing/down_payment>` is collected, choose between "
+"either :guilabel:`Down payment (percentage)` or :guilabel:`Down payment "
+"(fixed amount)`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:134
+msgid ""
+"When the necessary information has been entered, click :guilabel:`Create and"
+" View Invoice` or :guilabel:`Create Invoice`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:138
+msgid ""
+"Invoices are created in draft mode, so they can be reviewed and edited, if "
+"necessary."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:140
+msgid ""
+"The invoice can then be :doc:`sent to the customer "
+"<../../../finance/accounting/customer_invoices>` for payment."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:144
+msgid "Create helpdesk ticket for prepaid services"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:146
+msgid ""
+"To create a *Helpdesk* ticket for prepaid services, navigate to "
+":menuselection:`Helpdesk app`, and click the :guilabel:`Tickets` button on "
+"the desired team's card, to reveal that specific team's pipeline. Click "
+":guilabel:`Create` to create a new ticket."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:150
+msgid ""
+"On the blank ticket form, enter a ticket :guilabel:`Title` and the "
+":guilabel:`Customer` information."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:153
+msgid ""
+"When the customer name is added, the :guilabel:`Sales Order Item` field "
+"automatically populates with the most recent prepaid sales order item that "
+"has time remaining."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:156
+msgid ""
+"If a customer has more than one sales order item with remaining time, click "
+"the :guilabel:`Sales Order Item` field, and select the correct item from the"
+" drop-down list."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:159
+msgid ""
+"After entering all of the necessary information, click :guilabel:`Save`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:162
+msgid "Track hours on helpdesk ticket"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:164
+msgid ""
+"Time spent working on a *Helpdesk* ticket is tracked on the *Timesheets* tab"
+" on the specific ticket."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:166
+msgid ""
+"On the ticket detail form, click on the :guilabel:`Timesheets` tab, and "
+"click :guilabel:`Add a line`. Choose an :guilabel:`Employee`, add a "
+":guilabel:`Description` of the task, and enter the number of "
+":guilabel:`Hours Spent` working on the task."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:170
+msgid ""
+"As new lines are added to :guilabel:`Timesheets` tab, the "
+":guilabel:`Remaining Hours on SO` field, at the bottom-right of the tab, is "
+"automatically updated."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst-1
+msgid ""
+"The timesheets tab of a Helpdesk ticket keeping track of the number of hours remaining on a\n"
+"sales order."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:179
+msgid ""
+"If the number of hours on the :guilabel:`Timesheets` tab exceeds the number "
+"of hours sold, the :guilabel:`Remaining Hours of SO` turns red."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:182
+msgid ""
+"As hours are added to the :guilabel:`Timesheets` tab, they are automatically"
+" updated in the :guilabel:`Delivered` field on the :abbr:`SO (sales order)`,"
+" as well."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:186
+msgid "Invoice post-paid support services"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:188
+msgid ""
+"When support services are billed based on the amount of time spent on an "
+"issue, an invoice **cannot** be created before the total number of hours "
+"required to solve the problem have been entered on a timesheet. In this "
+"case, a service product with the *Invoicing Policy* set to *Based on "
+"Timesheets* would be used, like the one created :ref:`above "
+"<helpdesk/configure-service-products>`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:194
+msgid "Create time-tracked product sales order"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:196
+msgid ""
+"To invoice a customer for post-paid support services, first create a sales "
+"order (SO) with the :guilabel:`Service on Timesheet` product. To do this, go"
+" to :menuselection:`Sales app --> Orders --> Quotations`. Then, click "
+":guilabel:`Create` to reveal a blank quotation form."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:200
+msgid "Fill out the quotation with the customer information."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:202
+msgid ""
+"On the :guilabel:`Order Lines` tab, click :guilabel:`Add a Product`. Select "
+"the :guilabel:`Service on Timesheet` product configured :ref:`above "
+"<helpdesk/configure-service-products>`. After updating any other necessary "
+"information, :guilabel:`Confirm` the quotation."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:207
+msgid ""
+"Unlike with the prepaid service quotations, Odoo does **not** allow an "
+"invoice to be created at this time. That is because no services have been "
+"performed; in other words, nothing has been delivered, therefore, there is "
+"nothing to invoice."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:212
+msgid "Create a helpdesk ticket for time-tracked services"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:214
+msgid ""
+"To record a *Timesheet* entry for time-tracked services, go to the "
+":menuselection:`Helpdesk app`, and select the appropriate team for which "
+"these services apply."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:217
+msgid ""
+"If there is already an existing ticket for this issue, select it from the "
+"Kanban view to open it. If there is no existing ticket for this customer "
+"issue, click :guilabel:`Create` to create a new ticket, and enter the "
+"necessary customer information on the blank ticket detail form."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:221
+msgid ""
+"After selecting or creating a ticket, go to the :guilabel:`Sales Order Item`"
+" drop-down menu. Select the :abbr:`SO (sales order)` created in the previous"
+" step."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:225
+msgid "Track support hours on a ticket"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:227
+msgid ""
+"In order to create an invoice for a product based on timesheets, hours need "
+"to be tracked and recorded. At this point, the service is considered "
+"*delivered*. To record hours for this support service, click on the "
+":guilabel:`Timesheets` tab of the ticket."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:231
+msgid ""
+"Click :guilabel:`Add a Line` to record a new entry. Select an "
+":guilabel:`Employee` from the drop-down menu, and record the time spent in "
+"the :guilabel:`Hours Spent` column."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:234
+msgid ""
+"Repeat these steps, as needed, until all time spent on the issues has been "
+"recorded. Then, click :guilabel:`Save`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:238
+msgid "Create invoice for hours tracked on a ticket"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:240
+msgid ""
+"After the customer's issue has been solved, and it is determined no new "
+"timesheet entries need to be made, an invoice can be created, and the "
+"customer can be billed."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:243
+msgid ""
+"To do this, return to the :abbr:`SO (sales order)` by clicking on the "
+":guilabel:`Sales Order` smart button at the top of the ticket."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:246
+msgid ""
+"Before creating the invoice, confirm that the number in the "
+":guilabel:`Delivered` column matches the total number of :guilabel:`Hours "
+"Spent` listed in the :guilabel:`Timesheets` tab on the ticket."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:249
+msgid ""
+"Then, click :guilabel:`Create Invoice`. This opens a :guilabel:`Create "
+"invoices` pop-up window."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:251
+msgid ""
+"If no down payment is collected, the :guilabel:`Create Invoice` type can "
+"remain as :guilabel:`Regular invoice`. If a down payment is collected, "
+"choose between either :guilabel:`Down payment (percentage)` or "
+":guilabel:`Down payment (fixed amount)`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:256
+msgid ""
+"Use the :guilabel:`Timesheets Period` field if this invoice should **only** "
+"include timesheets from a certain time period. If this field is left blank, "
+"**all** applicable timesheets that have not yet been invoiced will be "
+"included."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:260
+msgid ""
+"When the necessary information has been entered, click :guilabel:`Create and"
+" View Invoice` or :guilabel:`Create Invoice`. The invoice can then be "
+":doc:`sent to the customer <../../../finance/accounting/customer_invoices>` "
+"for payment."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:265
+msgid ":doc:`../../../inventory_and_mrp/inventory/management/products/uom`"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/advanced/track_and_bill.rst:266
+msgid ":doc:`../../../sales/sales/invoicing/down_payment`"
+msgstr ":doc:`../../../sales/sales/invoicing/down_payment`"
+
+#: ../../content/applications/services/helpdesk/overview.rst:5
+#: ../../content/applications/services/timesheets/overview.rst:5
+msgid "Overview"
+msgstr "ภาพรวม"
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:3
+msgid "Forum and eLearning"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:6
+msgid "Forum"
+msgstr "ฟอรั่ม"
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:8
+msgid ""
+"To go above and beyond email, live chat, web forms, and phone lines, offer "
+"your customers a support forum. This way, customers might become more "
+"attached to your company as they would be investing time to get into details"
+" of your business. You also encourage the exchange of experiences and "
+"knowledge, supporting the feeling of belonging to a community (your "
+"community!)."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:14
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:52
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:10
+msgid "Set up"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:16
+msgid ""
+"Go to :menuselection:`Helpdesk --> Configuration --> Helpdesk Team` and "
+"enable *Help Center*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst-1
+msgid ""
+"Overview of the settings page of a helpdesk team emphasizing the help center feature in\n"
+"Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:23
+msgid ""
+"Create, or edit a forum by clicking on the external link. Among the editing "
+"options, choose if you would like the *Forum Mode* to be *Questions*: only "
+"one answer is allowed per question or *Discussions*: multiple answers are "
+"allowed per question."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst-1
+msgid "Overview of a forum’s settings page in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:31
+msgid ""
+"From now on, logged in users can start their discussions. To keep track of "
+"posts, go to :menuselection:`Website --> Forum --> Posts`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst-1
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst-1
+msgid ""
+"Overview of the Forums page of a website to show the available ones in Odoo "
+"Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:38
+msgid ""
+"Turn tickets into forum posts by simply clicking on *Share on the Forum* on "
+"the ticket's page."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:45
+msgid "eLearning"
+msgstr "eLearning"
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:47
+msgid ""
+"In addition to a forum, offer online courses. When doing so, you link your "
+"customers and users’ needs and questions to useful content, helping to boost"
+" efficiency as they can also find their answers there."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:54
+msgid ""
+"Go to :menuselection:`Helpdesk --> Configuration --> Helpdesk Teams` and "
+"enable *eLearning*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst-1
+msgid ""
+"Overview of the settings page of a customer care team emphasizing the feature elearning in\n"
+"Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:61
+msgid ""
+"Once the structure and content of your course are ready, *Publish* it by "
+"clicking on *Unpublished*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst-1
+msgid "View of a course being published for Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:67
+msgid ""
+"To keep track of your course statistics, go to *eLearning* and *View "
+"Course*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst-1
+msgid "View of the elearning applications dashboard for Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:73
+msgid "Todo"
+msgstr "ที่จะทำ"
+
+#: ../../content/applications/services/helpdesk/overview/forum_and_elearning.rst:73
+msgid ""
+"DETAILS/INFO SHOULD COME FROM ELEARNING DOCS. THEREFORE, LINK DOCS ONCE "
+"AVAILABLE!"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:3
+msgid "Getting Started"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:5
+msgid ""
+"Helpdesk teams provide your customers with support to queries or errors they"
+" might encounter while using your product/service. Therefore, a successful "
+"scheme where you can organize multiple teams with their customized pipeline,"
+" visibilities settings, and ticket traceability is essential."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:10
+msgid "Set up teams"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:12
+msgid ""
+"To modify or create teams, go to :menuselection:`Helpdesk --> Configuration "
+"--> Helpdesk Teams`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:14
+msgid ""
+"Setting up multiple teams allows you to group tickets by your channels "
+"(example: BE/US), or by your support services' types (example: IT, "
+"accounting, admin, etc.)."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst-1
+msgid "View of the helpdesk teams page in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:21
+msgid "Team’s productivity and visibility"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:23
+msgid ""
+"Teams can have individual *Assignment Methods* to ensure that tickets get "
+"redirected to the right person:"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:26
+msgid ""
+"*Manually*: tickets are manually assigned, allowing employees to manage "
+"their own workload and target tickets they are experts at;"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:28
+msgid ""
+"*Random*: tickets are randomly assigned and everyone gets the same amount. "
+"This method ensures that all tickets are handled as the assignment happens "
+"automatically;"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:30
+msgid ""
+"*Balanced*: tickets are assigned to the person with the least amount of "
+"tickets so that everyone fairly gets the same amount. Thereby, you ensure "
+"that all tickets get to be taken care of."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst-1
+msgid ""
+"View of a helpdesk team settings page emphasizing the productivity and visibility features\n"
+"in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:40
+msgid ""
+"For the *Random* and *Balanced* assignment methods, you can set the *Team "
+"Members* among whom tickets are assigned. Leave the field empty to include "
+"all employees (with the proper access rights)."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:43
+msgid ""
+"The *Team Visibility* feature allows you to specify who can see and access "
+"the team’s tickets. Therefore, ticket’s with sensible information are only "
+"seen by the right people. Leave the field empty to include all employees "
+"(with the proper access rights)."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:46
+msgid "Set up stages and share it among teams"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:48
+msgid ""
+"To set up stages, go to :menuselection:`Helpdesk --> Configuration --> "
+"Stages`. Then, create and/or edit stages as you need and set specific teams "
+"to use certain stages under *Team*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst-1
+msgid ""
+"View of a stage’s setting page emphasizing the option to add teams in Odoo "
+"Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:55
+msgid ""
+"Stages can be shared between one or multiple teams, allowing you to adapt "
+"the pipeline to your individual needs. They also apply a visibility and "
+"access rule, as other teams are not able to see or use the stage."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst-1
+msgid "View of a team’s kanban view in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/getting_started.rst:64
+msgid ":doc:`/applications/general/users`"
+msgstr ":doc:`/applications/general/users`"
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:3
+msgid "Ratings"
+msgstr "การให้คะแนน"
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:5
+msgid ""
+"Allow customers to rate their experience with your helpdesk teams to "
+"strengthen your credibility and gain their trust. Reviews can also influence"
+" a customer’s decision and open space for feedback that can help you improve"
+" the quality of your services."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:12
+msgid ""
+"Go to :menuselection:`Helpdesk --> Configuration --> Helpdesk Teams` and "
+"enable *Ratings on tickets*. The feature automatically adds a default email "
+"template on the non-folded *closing stage(s)* of that team."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst-1
+msgid ""
+"Overview of the settings page of a helpdesk team emphasizing the rating on ticket feature\n"
+"in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:21
+msgid ""
+"To edit the email template and the stage(s) set as the closing ones, go to "
+"the Kanban view of your helpdesk team and click on *Settings*, then on *Edit"
+" Stage*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst-1
+msgid ""
+"Overview of a helpdesk team kanban view emphasizing the menu edit stage in "
+"Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:28
+msgid ""
+"Now, once a ticket reaches the stage(s) designated as the *Closing Stage*, "
+"an email is sent to the customer."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst-1
+msgid ""
+"View of a standard helpdesk customer review email template for Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:35
+msgid ""
+"Ratings can be seen on the chatter of each ticket, under the *See Customer "
+"Satisfaction* link on the main dashboard, and through *Reporting*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:39
+msgid "Ratings visible on the customer portal"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:41
+msgid ""
+"Go to :menuselection:`Helpdesk --> Configuration --> Helpdesk Teams` and "
+"enable *Display Rating on Customer Portal*. Now, by clicking on the helpdesk"
+" team’s name on their ticket, customers can see its ratings."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst-1
+msgid ""
+"View of the helpdesk ticket from a user’s portal emphasizing the link to the helpdesk team\n"
+"in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/ratings.rst:51
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:88
+#: ../../content/applications/services/helpdesk/overview/sla.rst:195
+msgid ":doc:`../advanced/close_tickets`"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:3
+msgid "Start Receiving Tickets"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:5
+msgid ""
+"Offering a variety of channels from where your customers can contact you "
+"grants them flexibility and the right to choose the best one for themselves."
+" And, in order to make sure inquiries across all channels get addressed, it "
+"is essential to have a solution where all interactions come in one place."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:11
+msgid "Channels options to submit tickets"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:13
+msgid ""
+"Go to :menuselection:`Helpdesk --> Configuration --> Helpdesk Teams`, and "
+"enable the following features as you want them to be available to your "
+"users."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst-1
+msgid ""
+"View of a helpdesk teams setting page emphasizing the channels options in "
+"Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:21
+msgid "Email Alias"
+msgstr "นามแฝงอีเมล"
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:24
+msgid ""
+"Let your customers submit tickets by sending an email to your support email "
+"address. The subject line of the email becomes the title of the ticket and "
+"the content is shown in the Chatter."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:26
+msgid ""
+"Select *Configure domain name* to be redirected to *Settings* and, from "
+"there, enable *External Email Servers* to determine or change your *Alias "
+"Domain*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst-1
+msgid ""
+"View of the settings page of a helpdesk team emphasizing the email alias feature\n"
+"in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:35
+msgid ""
+"Using your own email server is required to send and receive emails in Odoo "
+"Community and Enterprise. Online users benefit from a ready-to-use email "
+"server."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:39
+msgid "Website Form"
+msgstr "แบบฟอร์มเว็บไซต์"
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:41
+msgid ""
+"Allow your customers to submit a ticket by filling in a form through your "
+"website."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:42
+msgid ""
+"Once the feature is activated, get redirected to your website by clicking on"
+" *Go to Website*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst-1
+msgid ""
+"View of the settings page of a helpdesk team emphasizing the Go to Website button in\n"
+"Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:49
+msgid ""
+"From the website page customize the form as you like. Then, publish it by "
+"clicking on *Unpublished*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst-1
+msgid "View of the website form to submit a ticket for Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:56
+msgid "Live Chat"
+msgstr "ไลฟ์แชท"
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:59
+msgid ""
+"Through live interactions with your website visitors, helpdesk tickets can "
+"be instantly created and redirected to the right person."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:61
+msgid ""
+"Click on your helpdesk team's name - for the example below: *Customer Care* "
+"- and :doc:`set up your channel </applications/websites/livechat>`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst-1
+msgid ""
+"View of the settings page of a helpdesk team emphasizing the live chat features and links\n"
+"in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:68
+msgid ""
+"Now, your operators can create tickets by using the :doc:`command "
+"</applications/websites/livechat/responses>` */helpdesk "
+"(subject_of_ticket)*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:72
+msgid "Prioritize tickets"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:74
+msgid ""
+"Use the stars to prioritize your tickets. The most urgent ones appear at the"
+" top of your list on the Kanban view."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:77
+msgid "1 star = *Low priority*"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:78
+msgid "2 stars = *High priority*"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:79
+msgid "3 stars = *Urgent*"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst-1
+msgid ""
+"View of a team’s kanban view and the prioritized tasks in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:87
+#: ../../content/applications/services/helpdesk/overview/reports.rst:60
+msgid ":doc:`sla`"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/receiving_tickets.rst:89
+msgid ":doc:`/applications/general/email_communication/email_servers`"
+msgstr ":doc:`/applications/general/email_communication/email_servers`"
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:3
+msgid "Reports for a Better Support"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:5
+msgid ""
+"An efficient customer service solution should have a built-in reporting "
+"option. Reports allow you to track trends, identify areas for improvement, "
+"manage employees’ workloads and, most importantly, meet your customer’s "
+"expectations."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:10
+msgid "Cases"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:12
+msgid "Some examples of the reports Odoo Helpdesk can generate include:"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:14
+msgid "The number of tickets *grouped by* team and ticket type."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:17
+msgid ""
+"In this manner, you are able to evaluate which ticket types have been the "
+"most frequent ones, plus the workload of your teams."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:19
+msgid ""
+"Apply *Time Ranges* if you would like to make comparisons to a *Previous "
+"Period* or a *Previous Year*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst-1
+msgid ""
+"View of a helpdesk ticket analysis by team and ticket type in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:25
+msgid "The number of tickets closed per day, per team."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:27
+msgid ""
+"Get an overview of how many requests each team is closing per day in order "
+"to measure their performance. Identify productivity levels to understand how"
+" many requests they are able to handle."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst-1
+msgid ""
+"View of a helpdesk ticket analysis by team and close date in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:35
+msgid ""
+"Filter it by *Assignee* to see Key Performance Indicators (KPI) per agent."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:37
+msgid ""
+"The number of hours tickets are taking to be solved, grouped by team and "
+"ticket type."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:39
+msgid ""
+"Check if your expectations are met by *measuring* the *Time to close "
+"(hours)*. Your customers not only expect fast responses but they also want "
+"their issues to be handled quickly."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst-1
+msgid ""
+"View of helpdesk ticket analysis of the hours to close by ticket type and team in\n"
+"Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:48
+msgid "Save filters"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:50
+msgid ""
+"Save the filters you use the most and avoid having to reconstruct them every"
+" time they are needed. To do so, set the groups, filters, and measures "
+"needed. Then, go to *Favorites*."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst-1
+msgid ""
+"View of helpdesk ticket analysis emphasizing the option to add a filter as a favorite one\n"
+"in Odoo Helpdesk"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/reports.rst:59
+msgid ":doc:`receiving_tickets`"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:3
+msgid "Service level agreements (SLAs)"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:5
+msgid ""
+"A *service level agreement* (SLA) defines the level of service a customer "
+"can expect from a supplier. :abbr:`SLAs (Service Level Agreements)` provide "
+"a timeline that tells customers when they can expect results, and keeps the "
+"support team on target."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:10
+msgid ""
+"The *SLA Policies* feature **must** be enabled on newly-created *Helpdesk* "
+"teams."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:12
+msgid ""
+"To enable the feature, navigate to :menuselection:`Helpdesk app --> "
+"Configuration --> Helpdesk Teams`. Click on a team to open that team's "
+"configuration page."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:15
+msgid ""
+"From here, scroll to the :guilabel:`Performance` section. To turn on the "
+":abbr:`SLAs (Service Level Agreements)` feature for the team, tick the "
+":guilabel:`SLA Policies` checkbox. Click :guilabel:`Save` to save the "
+"changes. The page may need to be refreshed."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:0
+msgid ""
+"The configuration page for a Helpdesk team with the SLA feature enabled."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:24
+msgid "Create SLA policy"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:26
+msgid ""
+"To create a new policy, go to :menuselection:`Helpdesk app --> Configuration"
+" --> SLA Policies`, and click :guilabel:`Create`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:29
+msgid ""
+"Alternatively, go to :menuselection:`Helpdesk app --> Configuration --> "
+"Helpdesk Teams`, and click on a team. Then, click the :guilabel:`SLA "
+"Policies` smart button at the top of the team's settings page, and click "
+":guilabel:`Create`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:33
+msgid ""
+"On the blank :guilabel:`SLA Policies` form, enter a name on the blank line "
+"at the top of the form, and a description in the :guilabel:`Description of "
+"the policy...` field. Then, proceed to fill out the form using the steps "
+"below."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:38
+msgid "Define SLA policy criteria"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:40
+msgid ""
+"The :guilabel:`Criteria` section is used to identify which tickets this "
+"policy is applied to."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:42
+msgid "Fill out the following fields to adjust the selection criteria:"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:45
+msgid ""
+"Unless otherwise indicated, multiple selections can be made for each field."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:47
+msgid ""
+":guilabel:`Helpdesk Team`: a policy can only be applied to one team. *This "
+"field is required.*"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:48
+msgid ""
+":guilabel:`Minimum Priority`: the priority level for a ticket is identified "
+"by selecting one, two, or three of the :guilabel:`⭐ (star)` icons, "
+"representing the priority level on the Kanban card, or on the ticket itself."
+" The :abbr:`SLA (Service Level Agreement)` is **only** applied after the "
+"priority level has been updated on the ticket to match the :abbr:`SLA "
+"(Service Level Agreement)` criteria. If no selection is made in this field, "
+"this policy applies to all priority levels."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:53
+msgid ""
+":guilabel:`Type`: ticket types can be helpful when indicating when a ticket "
+"is a customer question that can be solved with a quick response, or an issue"
+" that may require additional investigation. Multiple ticket types can be "
+"selected for this field. If no selection is made, this policy applies to all"
+" ticket types."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:57
+msgid ""
+":guilabel:`Tags`: tags are used to indicate what the ticket is about. "
+"Multiple tags can be applied to a single ticket."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:59
+msgid ""
+":guilabel:`Customers`: individual contacts or companies may be selected in "
+"this field."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:60
+msgid ""
+":guilabel:`Sales Order Items`: this field is available only if a team has "
+"the *Timesheets* feature enabled. This allows the ticket to link directly to"
+" a specific line on a sales order, which must be indicated on the ticket in "
+"the :guilabel:`Sales Order Items` field."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:65
+msgid "Establish an SLA policy target"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:67
+msgid ""
+"The :guilabel:`Target` section of an :abbr:`SLA (Service Level Agreement)` "
+"policy form, identifies the stage a ticket needs to reach, and the time "
+"allotted to reach that stage, to satisfy the :abbr:`SLA (Service Level "
+"Agreement)` policy. Any stage assigned to a team may be selected for the "
+":guilabel:`Reach Stage` field."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:73
+msgid ""
+"An :abbr:`SLA (Service Level Agreement)` titled `8 Hours to Close` tracks "
+"the working time before a ticket is completed, and would have `Solved` as "
+"the :guilabel:`Reach Stage`. Simultaneously, an :abbr:`SLA (Service Level "
+"Agreement)` titled `2 Days to Start` tracks the working time before work on "
+"a ticket has begun, and would have `In Progress` as the :guilabel:`Reach "
+"Stage`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:78
+msgid ""
+"Time spent in stages selected in the :guilabel:`Excluding Stages` field are "
+"**not** included in the calculation of the :abbr:`SLA (Service Level "
+"Agreement)` deadline."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:82
+msgid "Meet SLA deadlines"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:84
+msgid ""
+"As soon as it is determined that a ticket fits the criteria of an :abbr:`SLA"
+" (Service Level Agreement)` policy, a deadline is calculated. The deadline "
+"is based on the creation date of the ticket, and the targeted working hours."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:89
+msgid ""
+"The value indicated next to the :guilabel:`Working Hours` field of an "
+":abbr:`SLA (Service Level Agreement)` policy is used to determine the "
+"deadline. By default, this is determined by the value set in the "
+":guilabel:`Company Working Hours` field. To view, or update, this setting, "
+"first enable :doc:`developer mode <../../../general/developer_mode/>`.  "
+"Then, navigate to :menuselection:`Settings app --> Technical --> Resources "
+"--> Working Times`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:95
+msgid ""
+"The deadline is then added to the ticket, as well as a tag indicating the "
+"name of the :abbr:`SLA (Service Level Agreement)` applied."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:98
+msgid ""
+"When a ticket satisfies an :abbr:`SLA (Service Level Agreement)` policy, the"
+" :abbr:`SLA (Service Level Agreement)` tag turns green, and the deadline "
+"disappears from view on the ticket."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:105
+msgid "A Helpdesk ticket with two SLA tags attached."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:105
+msgid ""
+"This Helpdesk ticket has two SLA policies applied to it. One of the policies"
+" has been satisfied, so the tag has turned green. The other policy is in "
+"progress."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:109
+msgid ""
+"If a ticket fits the criteria for more than one :abbr:`SLA (Service Level "
+"Agreement)`, the earliest occurring deadline is displayed on the ticket. "
+"After that deadline has passed, the next deadline is displayed."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:0
+msgid "A Helpdesk ticket with emphasis on the deadline field."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:117
+msgid ""
+"If the :abbr:`SLA (Service Level Agreement)` deadline passes and the ticket "
+"has not moved to the :guilabel:`Reach Stage`, the :abbr:`SLA (Service Level "
+"Agreement)` tag turns red. After the :abbr:`SLA (Service Level Agreement)` "
+"has failed, the red tag stays on the ticket, even after the ticket is moved "
+"to the :guilabel:`Reach Stage`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:123
+msgid "Analyze SLA performance"
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:125
+msgid ""
+"The *SLA Status Analysis* report tracks how quickly an :abbr:`SLA (Service "
+"Level Agreement)` is fulfilled, as well as the performance of individual "
+"team members. Navigate to the report, and corresponding pivot table, by "
+"going to :menuselection:`Helpdesk app --> Reporting --> SLA Status "
+"Analysis`."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:131
+msgid "Pivot view"
+msgstr "มุมมองสรุป"
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:133
+msgid ""
+"By default, the report displays in a :guilabel:`Pivot` view. Any :abbr:`SLA "
+"(Service Level Agreement)` policies in the database with tickets that failed"
+" to fulfill a policy, are in progress, or have satisfied a policy are "
+"listed."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst-1
+msgid "The pivot view of the SLA Analysis report."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:141
+msgid ""
+"To change the display, or add additional measurements, click the "
+":guilabel:`Measures` button to reveal a drop-down menu of reporting "
+"criteria, and choose from the options available."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:144
+msgid ""
+"Whenever a measurement is picked, a :guilabel:`✔️ (checkmark)` icon appears "
+"in the drop-down menu to indicate that the measurement is included, and a "
+"corresponding new column emerges in the pivot table to show the relevant "
+"calculations."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:148
+msgid ""
+"To add a group to a row or column, click the :guilabel:`➕ (plus)` icon next "
+"to the policy name and then select one of the groups. To remove one, click "
+"the :guilabel:`➖ (minus)` icon next to the policy name."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:153
+msgid "Graph view"
+msgstr "มุมมองกราฟ"
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:155
+msgid ""
+"The :guilabel:`SLA Status Analysis` report can also be viewed as a *Bar "
+"Chart*, *Line Chart*, or *Pie Chart*. Toggle between these views by first "
+"selecting the :guilabel:`Graph` button at the top-right of the dashboard. "
+"Then, select the appropriate chart icon at the top-left of the graph."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:161
+msgid "Bar Chart"
+msgstr "แผนภูมิแท่ง"
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:0
+msgid "View of the SLA status analysis report in bar view."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:167
+msgid ""
+"A bar chart can deal with larger data sets, and compare data across several "
+"categories."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:169
+msgid "Line Chart"
+msgstr "แผนภูมิเส้น"
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:0
+msgid "View of the SLA status analysis report in line view."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:175
+msgid "A line chart can visualize data trends or changes over time."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:177
+msgid "Pie Chart"
+msgstr "แผนภูมิวงกลม"
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:0
+msgid "View of the SLA status analysis report in pie chart view."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:183
+msgid "A pie chart compares data among a small number of categories."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:186
+msgid ""
+"Both the :guilabel:`Bar Chart` and :guilabel:`Line Chart` views can be "
+":guilabel:`Stacked` by selecting the :guilabel:`Stacked` icon. This displays"
+" two or more groups on top of each other, instead of next to each other, "
+"making it easier to compare data."
+msgstr ""
+
+#: ../../content/applications/services/helpdesk/overview/sla.rst:0
+msgid ""
+"An example of the SLA analysis report, displaying the stacked bar graph "
+"view."
+msgstr ""
+
+#: ../../content/applications/services/project.rst:8
+msgid "Project"
+msgstr "โปรเจกต์"
+
+#: ../../content/applications/services/project.rst:10
+msgid ""
+"Odoo Project is a tool to manage your ongoing projects. Schedule tasks, "
+"assign activities to coworkers, and keep track of each project's "
+"profitability."
+msgstr ""
+"Odoo โปรเจ็กต์ เป็นเครื่องมือในการจัดการโปรเจ็กต์ที่กำลังดำเนินอยู่ของคุณ "
+"กำหนดเวลางาน มอบหมายกิจกรรมให้กับเพื่อนร่วมงาน "
+"และติดตามความสามารถในการทำกำไรของแต่ละโปรเจ็กต์"
+
+#: ../../content/applications/services/project.rst:14
+#: ../../content/applications/services/timesheets.rst:11
+msgid ""
+"`Odoo Tutorials: Project and Timesheets "
+"<https://www.odoo.com/slides/project-and-timesheets-21>`_"
+msgstr ""
+"`บทช่วยสอน Odoo: โปรเจ็กต์และระบบบันทึกเวลา "
+"<https://www.odoo.com/slides/project-and-timesheets-21>`_"
+
+#: ../../content/applications/services/project/tasks.rst:5
+msgid "Tasks"
+msgstr "งาน"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:3
+msgid "Create Project's Tasks from an Email Alias"
+msgstr "สร้างงานของโปรเจ็กต์จากนามแฝงอีเมล"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:5
+msgid ""
+"When you already have an email address that customers know from the top of "
+"their heads, changing it is the last thing you want to do. Instead, link "
+"that address to your project and transform those conversations into "
+"structured work. It automatically creates a task in the first stage of a "
+"project."
+msgstr ""
+"เมื่อคุณมีที่อยู่อีเมลที่ลูกค้ารู้อยู่แล้ว "
+"การเปลี่ยนแปลงเป็นสิ่งสุดท้ายที่คุณต้องการทำ "
+"ให้เชื่อมโยงที่อยู่นั้นกับโปรเจ็กต์ของคุณและแปลงการสนทนาเหล่านั้นให้เป็นงานที่มีโครงสร้างแทน"
+" โดยจะสร้างงานในระยะแรกของโปรเจ็กต์โดยอัตโนมัติ"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:11
+msgid "Set up an incoming email server"
+msgstr ""
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:14
+msgid ""
+"On the *Settings* application, enable *External Email Servers* and define "
+"the incoming email alias you would like to use."
+msgstr ""
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:15
+msgid ""
+"**For more information**: "
+":doc:`/applications/general/email_communication/email_servers`"
+msgstr ""
+"**สำหรับข้อมูลเพิ่มเติม**: "
+":doc:`/applications/general/email_communication/email_servers`"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:18
+msgid "Configure the email alias in your project"
+msgstr "กำหนดค่าอีเมลแทนในโปรเจ็กต์ของคุณ"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:22
+msgid ""
+"Now that you have the incoming email server set up, go to "
+":menuselection:`Project --> Configuration --> Projects --> Edit`. Under the "
+"*Emails* tab, define the wanted email alias and choose the policy to receive"
+" a message."
+msgstr ""
+"เมื่อคุณได้ตั้งค่าเซิร์ฟเวอร์อีเมลขาเข้าแล้ว ให้ไปที่ "
+":menuselection:`โปรเจ็กต์ --> การกำหนดค่า --> โปรเจ็กต์ --> แก้ไข` ใต้แท็บ "
+"*อีเมล* ให้กำหนดอีเมลแฝงที่ต้องการ และเลือกนโยบายที่จะรับข้อความ"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:23
+msgid "In addition, you can now directly set it when creating a new project."
+msgstr "นอกจากนี้ คุณยังสามารถตั้งค่าได้โดยตรงเมื่อสร้างโปรเจ็กต์ใหม่"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst-1
+msgid ""
+"In the settings of your project, define the emails alias under the tab email"
+" in Odoo Project"
+msgstr ""
+"ในการตั้งค่าโปรเจ็กต์ของคุณ ให้กำหนดอีเมลแฝงใต้แท็บอีเมลใน Odoo โปรเจ็กต์"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:30
+msgid ""
+"All the recipients of the email (To/Cc/Bcc) are automatically added as "
+"followers of the task."
+msgstr ""
+
+#: ../../content/applications/services/project/tasks/email_alias.rst:32
+msgid "The email can be seen under the name of your project on the dashboard."
+msgstr "สามารถดูอีเมลได้ใต้ชื่อโปรเจ็กต์ของคุณบนแดชบอร์ด"
+
+#: ../../content/applications/services/project/tasks/email_alias.rst-1
+msgid "View of the email alias chosen on the dashboard view in Odoo Project"
+msgstr "มุมมองของอีเมลแฝงที่เลือกในมุมมองแดชบอร์ดใน Odoo โปรเจ็กต์"
+
+#: ../../content/applications/services/timesheets.rst:8
+msgid "Timesheets"
+msgstr "ใบบันทึกเวลา"
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst:3
+msgid "Create Timesheets upon Time Off Validation"
+msgstr ""
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst:5
+msgid ""
+"Odoo automatically timesheets on project/tasks upon time off requests. This "
+"allows for better overall control over the validation of timesheets, as it "
+"does not leave place for forgetfulness and questions after hours that have "
+"not been timesheeted by the employee."
+msgstr ""
+"Odoo จัดทำใบบันทึกเวลาของโปรเจ็กต์/งานโดยอัตโนมัติเมื่อมีการร้องขอการลางาน "
+"ซึ่งช่วยให้ควบคุมการตรวจสอบความถูกต้องของระบบบันทึกเวลาโดยรวมได้ดีขึ้น "
+"ซึ่งจะไม่ปล่อยให้เกิดการหลงลืมและถามคำถามนอกเวลาทำงานที่พนักงานไม่ได้กำหนดเวลาไว้"
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst:9
+msgid ""
+"Activate the :ref:`developer mode <developer-mode>`, go to *Timesheets*, and"
+" change the *Project* and *Task* set by default, if you like."
+msgstr ""
+"เปิดใช้งาน :ref:`โหมดนักพัฒนาซอฟต์แวร์<developer-mode> ` ไปที่ "
+"*ระบบบันทึกเวลา* และเปลี่ยน *โปรเจ็กต์* และ *งาน* ที่ตั้งไว้เป็นค่าเริ่มต้น "
+"หากคุณต้องการ"
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst-1
+msgid ""
+"View of Timesheets setting enabling the feature record time off in Odoo "
+"Timesheets"
+msgstr ""
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst:16
+msgid ""
+"Go to :menuselection:`Time Off --> Configuration --> Time Off Types`. Select"
+" or create the needed type, and decide if you would like the requests to be "
+"validated or not."
+msgstr ""
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst-1
+msgid ""
+"View of a time off types form emphasizing the time off requests and timesheets section in\n"
+"Odoo Time Off"
+msgstr ""
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst:26
+msgid ""
+"Now, once the employee has requested his time off and the request has been "
+"validated (or not, depending on the setting chosen), the time is "
+"automatically allocated on *Timesheets*, under the respective project and "
+"task."
+msgstr ""
+"ตอนนี้ เมื่อพนักงานขอลางานและคำขอได้รับการตรวจสอบแล้ว (หรือไม่ "
+"ขึ้นอยู่กับการตั้งค่าที่เลือก) เวลาจะถูกจัดสรรโดยอัตโนมัติใน *ใบบันทึกเวลา* "
+"ภายใต้โปรเจ็กต์และงานที่เกี่ยวข้อง"
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst:27
+msgid ""
+"On the example below, the user requested *Paid Time off* from July 13th to "
+"15th."
+msgstr ""
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst-1
+msgid "View of the time off request form in Odoo Time Off"
+msgstr ""
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst:33
+msgid ""
+"Considering that validation is not required, the requested time off is "
+"automatically displayed in *Timesheets*. If validation is necessary, the "
+"time is automatically allocated after the responsible person for validating "
+"does it so."
+msgstr ""
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst-1
+msgid ""
+"Video of timesheets emphasizing the requested time off from the employee in "
+"Odoo Timesheets"
+msgstr ""
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst:41
+msgid ""
+"Click on the magnifying glass, hovering over the concerned cell, to access "
+"all the aggregated data on that cell (day), and see details regarding the "
+"project/task."
+msgstr ""
+"คลิกที่แว่นขยาย วางเมาส์เหนือเซลล์ที่เกี่ยวข้อง "
+"เพื่อเข้าถึงข้อมูลที่รวบรวมไว้ทั้งหมดบนเซลล์นั้น (วัน) "
+"และดูรายละเอียดเกี่ยวกับโปรเจ็กต์/งาน"
+
+#: ../../content/applications/services/timesheets/overview/time_off.rst-1
+msgid "View of the details of a project/task in Odoo Timeheets"
+msgstr "การดูรายละเอียดของโปรเจ็กต์/งานใน Odoo ระบบบันทึกเวลา"

@@ -1,79 +1,66 @@
 .. _developer-mode:
 
 ===========================
-Developer Mode (debug mode)
+Developer mode (debug mode)
 ===========================
 
-The developer mode (or debug mode) gives you access to extra and advanced tools.
+The developer mode, also known as debug mode, unlocks access to advanced :ref:`tools and settings
+<developer-mode/tools>` in Odoo.
 
-Activate through the Settings
-=============================
-
-Go to :menuselection:`Settings --> Activate the developer mode`.
-
-.. image:: settings.png
-   :align: center
-   :alt: Overview of the debug options under settings in Odoo
+.. warning::
+   Proceed with caution, as some developer tools and technical settings are considered advanced and
+   may have associated risks. Only use them if you understand the implications and are confident in
+   your actions.
 
 .. note::
-   *Activate the developer mode (with assets)* is used by developers; *Activate the developer mode
-   (with tests assets)* is used by developers and testers.
+   The developer mode is also available with :ref:`assets <frontend/framework/assets_debug_mode>`,
+   which are used to debug JavaScript code, and with :ref:`tests assets
+   <frontend/framework/tests_debug_mode>`, which are used to run test tours.
 
-Once activated, the *Deactivate the developer mode* option becomes available.
+Activation
+==========
 
-Activate through a browser extension
-====================================
+To activate it, open the :guilabel:`Settings` app, scroll down to the :guilabel:`Developer Tools`
+section, and click :guilabel:`Activate the developer mode`.
 
-| Go to the settings and extensions of your web browser, and search for *Odoo Debug*. Once the
-  extension is installed, a new icon will be shown on your toolbar.
-| For the *Odoo Debug* extension, a single click enables a normal version of the mode, while a
-  double click enables it with assets. To deactivate it, use a single click.
+Once activated, the :guilabel:`Deactivate the developer mode` option becomes available.
 
-.. image:: monkey.png
-   :align: center
-   :alt: View of odoo’s debug icon in a chrome’s toolbar
+.. image:: developer_mode/settings.png
+   :alt: Activating the developer mode in the Settings app
 
-Activate through the command palette
-====================================
+To activate the developer mode **from anywhere in the database**, add `?debug=1` to the URL after
+`/web` (e.g., `https://example.odoo.com/web?debug=1#action=menu&cids=1`). To deactivate it, use
+`?debug=0` instead.
 
-The command palette tool has a command to activate the debug mode: open it with
-the keyboard shortcut `ctrl+k`, then type `debug`: a command will show up to
-activate the debug mode. 
-
-.. image:: developer_mode/command_palette.png
-   :align: center
-   :alt: Command palette with debug command
-
-Activate through the URL
-========================
-
-In the URL, add ``?debug=1`` or ``?debug=true`` after *web*. To deactivate the
-debug mode, add `?debug=0` instead.
-
-.. image:: url.png
-   :align: center
-   :alt: Overview of an url with the debug mode command added in Odoo
+Use `?debug=assets` to activate the developer mode with assets and `?debug=tests` to activate it
+with tests assets.
 
 .. tip::
-   Additional modes are available for developers: `?debug=assets` enables the
-   :ref:`assets mode <frontend/framework/assets_debug_mode>`, and `?debug=tests` enables
-   the :ref:`tests mode <frontend/framework/tests_debug_mode>`.
+   Open the **command palette** by pressing `Ctrl + K` or `Cmd ⌘ + K`, then type `debug` to
+   activate the developer mode with assets or deactivate it.
 
-Locate the mode tools
-=====================
+.. admonition:: Browser extension
 
-The Developer mode tools can be accessed from the *Open Developer Tools* button,
-located on the header of your pages. This menu contains additional tools that
-are useful to understand or edit technical data, such as the views or the actions.
-It contains some useful menu items such as:
+   The `Odoo Debug <https://github.com/Droggol/OdooDebug>`_ browser extension adds an icon to toggle
+   developer mode on or off from the browser's toolbar. It is available on the `Chrome Web Store
+   <https://chromewebstore.google.com/detail/odoo-debug/hmdmhilocobgohohpdpolmibjklfgkbi>`_ and
+   `Firefox Add-ons <https://addons.mozilla.org/firefox/addon/odoo-debug/>`_.
 
-- edit action
-- manage filters
-- edit the current view
-- see the `fields view get`
-- and much more.
+.. _developer-mode/tools:
 
-.. image:: button_location.png
-   :align: center
-   :alt: Overview of a console page and the debug icon being shown in Odoo
+Developer tools and technical menu
+==================================
 
+Once the developer mode is activated, the developer tools can be accessed by clicking the
+:icon:`fa-bug` :guilabel:`(bug)` icon. The menu contains tools useful for understanding or editing
+technical data, such as a view's field, filters, or actions. The options available depend on where
+the menu is accessed from.
+
+.. image:: developer_mode/tools.png
+   :alt: Accessing the developer tools
+
+Database administrators can access the technical menu from the :guilabel:`Settings` app. It contains
+advanced database settings, such as ones related to the database structure, security, actions, etc.
+
+.. image:: developer_mode/technical.png
+   :alt: Accessing the technical menu

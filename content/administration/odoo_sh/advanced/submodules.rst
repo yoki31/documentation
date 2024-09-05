@@ -1,9 +1,9 @@
 
 .. _odoosh-advanced-submodules:
 
-==================================
+==========
 Submodules
-==================================
+==========
 
 Overview
 ========
@@ -44,7 +44,7 @@ On Odoo.sh, in the branches view of your project, choose the branch in which you
 
 In the upper right corner, click on the *Submodule* button, and then on *Run*.
 
-.. image:: ./media/advanced-submodules-button.png
+.. image:: submodules/advanced-submodules-button.png
    :align: center
 
 A dialog with a form is shown. Fill the inputs as follows:
@@ -53,18 +53,18 @@ A dialog with a form is shown. Fill the inputs as follows:
 * Branch: The branch you want to use.
 * Path: The folder in which you want to add this submodule in your branch.
 
-.. image:: ./media/advanced-submodules-dialog.png
+.. image:: submodules/advanced-submodules-dialog.png
    :align: center
 
 On Github, you can get the repository URL with the *Clone or download* button of the repository. Make sure to *use SSH*.
 
-.. image:: ./media/advanced-submodules-github-sshurl.png
+.. image:: submodules/advanced-submodules-github-sshurl.png
   :align: center
 
 .. _odoosh-advanced-submodules-withgit:
 
 With Git (advanced)
----------------------
+-------------------
 
 In a terminal, in the folder where your Git repository is cloned,
 checkout the branch in which you want to add a submodule:

@@ -1,5 +1,4 @@
 :nosearch:
-:types: reference
 
 =========
 Reference
@@ -10,3 +9,6 @@ Reference
 
     reference/backend
     reference/frontend
+    reference/cli
+    reference/external_api
+    reference/extract_api

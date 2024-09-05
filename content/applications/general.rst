@@ -1,15 +1,13 @@
-=============
-Miscellaneous
-=============
+================
+General settings
+================
 
 .. toctree::
 
-    general/users
-    general/auth
     general/apps_modules
-    general/export_import_data
-    general/payment_acquirers
-    general/voip
-    general/calendars
-    general/in_app_purchase
+    general/users
+    general/companies
+    general/iot
+    general/email_communication
+    general/integrations
     general/developer_mode

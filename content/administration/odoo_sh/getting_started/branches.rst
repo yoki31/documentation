@@ -1,32 +1,32 @@
-
-==================================
+========
 Branches
-==================================
+========
 
 Overview
 ========
 
 The branches view gives you an overview of the different branches your repository has.
 
-.. image:: ./media/interface-branches.png
+.. image:: branches/interface-branches.png
    :align: center
 
 .. _odoosh-gettingstarted-branches-stages:
 
 Stages
-===============
+======
 
 Odoo.sh offers three different stages for your branches: production, staging and development.
 
 You can change the stage of a branch by drag and dropping it into the stage section title.
 
-.. image:: ./media/interface-branches-stagechange.png
+.. image:: branches/interface-branches-stagechange.png
    :align: center
 
 .. _stage_production:
 
 Production
 ----------
+
 This is the branch holding the code on which your production database runs.
 There can be only one production branch.
 
@@ -42,7 +42,7 @@ instance will be held temporarily unavailable for maintenance reason.
 
 This method is equivalent to perform an upgrade of the module through the Apps menu,
 or through the :code:`-u` switch of
-:doc:`the command line </developer/misc/other/cmdline>`.
+:doc:`the command line </developer/reference/cli>`.
 
 In the case the changes in the commit prevent the server to restart,
 or if the modules update fails,
@@ -59,6 +59,7 @@ will automatically be set back to the development stage after 30 days.
 
 Staging
 -------
+
 Staging branches are meant to test your new features using the production data without compromising
 the actual production database with test records. They will create databases that are neutralized
 duplicates of the production database.
@@ -83,9 +84,9 @@ The unit tests are not performed as, in Odoo, they currently rely on the demo da
 production database. In the future, if Odoo supports to run the unit tests without the demo data,
 Odoo.sh will then consider running the tests on staging databases.
 
-
 Development
 -----------
+
 Development branches create new databases using the demo data to run the unit tests.
 The installed modules are the ones included in your branches. You can change this list of modules
 to install in your :ref:`project Settings <odoosh-gettingstarted-settings-modules-installation>`.
@@ -98,7 +99,7 @@ disable the tests or allow specific tests to be run with custom tags in the :ref
 <odoosh-gettingstarted-branches-tabs-settings>`.
 
 Similar to staging branches, the emails are not sent but are intercepted by a mailcatcher and
-scheduled actions are not triggered as often is the database is not in use.
+scheduled actions are not triggered as long as the database is not in use.
 
 The databases created for development branches are meant to live around three days.
 After that, they can be automatically garbage collected to make room for new databases without prior notice.
@@ -107,9 +108,10 @@ After that, they can be automatically garbage collected to make room for new dat
 
 Merging your branches
 ---------------------
+
 You can merge your branches easily by drag and dropping them into each other.
 
-.. image:: ./media/interface-branches-merge.png
+.. image:: branches/interface-branches-merge.png
    :align: center
 
 When you want to test the changes of your development branches with the production data,
@@ -147,16 +149,17 @@ If you test configuration changes in staging branches, and want them to be appli
 .. _odoosh-gettingstarted-branches-tabs:
 
 Tabs
-=============
+====
 
 History
 -------
+
 An overview of your branch history:
 
 * The messages of the commits and their authors,
 * The various events linked to the platform, such as stage changes, database imports, backup restores.
 
-.. image:: ./media/interface-branches-history.png
+.. image:: branches/interface-branches-history.png
    :align: center
 
 For each event, a status is displayed in the top right-hand corner.
@@ -168,25 +171,26 @@ When an operation is successful, you can access the database thanks to the *conn
 
 Mails
 -----
+
 This tab contains the mail catcher. It displays an overview of the emails sent by your database.
 The mail catcher is available for your development and
 staging branches as the emails of your production database are really sent instead of being intercepted.
 
-.. image:: ./media/interface-branches-mails.png
+.. image:: branches/interface-branches-mails.png
    :align: center
    :scale: 50%
 
 Shell
 -----
+
 A shell access to your container. You can perform basic linux commands (:code:`ls`, :code:`top`)
 and open a shell on your database by typing :code:`psql`.
 
-.. image:: ./media/interface-branches-shell.png
+.. image:: branches/interface-branches-shell.png
    :align: center
 
 You can open multiple tabs and drag-and-drop them to arrange the layout as you wish,
 for instance side by side.
-
 
 .. Note::
   Long running shell instances are not guaranteed. Idle shells can be
@@ -194,10 +198,11 @@ for instance side by side.
 
 Editor
 ------
+
 An online integrated development environment (IDE) to edit the source code.
 You can also open terminals, Python consoles and even Odoo Shell consoles.
 
-.. image:: ./media/interface-branches-editor.png
+.. image:: branches/interface-branches-editor.png
    :align: center
 
 You can open multiple tabs and drag-and-drop them to arrange the layout as you wish,
@@ -205,19 +210,23 @@ for instance side by side.
 
 Monitoring
 ----------
+
 This link contains various monitoring metrics of the current build.
 
-.. image:: ./media/interface-branches-monitoring.png
+.. image:: branches/interface-branches-monitoring.png
    :align: center
 
 You can zoom, change the time range or select a specific metric on each graph.
 On the graphs, annotations help you relate to changes on the build (database import, git push, etc...).
 
+.. _odoosh/logs:
+
 Logs
 ----
+
 A viewer to have a look to your server logs.
 
-.. image:: ./media/interface-branches-logs.png
+.. image:: branches/interface-branches-logs.png
    :align: center
 
 Different logs are available:
@@ -238,10 +247,11 @@ The fetching is automatically stopped after 5 minutes. You can restart it using 
 
 Backups
 -------
+
 A list of the backups available for download and restore, the ability to perform a manual backup and to import a
 database.
 
-.. image:: ./media/interface-branches-backups.png
+.. image:: branches/interface-branches-backups.png
    :align: center
 
 Odoo.sh makes daily backups of the production database. It keeps 7 daily, 4 weekly and 3 monthly backups.
@@ -257,16 +267,16 @@ This server only keeps one month of backups: 7 daily and 4 weekly backups.
 Dedicated backup servers keep the same backups, as well as 3 additional monthly backups.
 To restore or download one of these monthly backups, please `contact us <https://www.odoo.com/help>`_.
 
-If you merge a commit updating the version of one or several modules (in :file:`__manifest__.py`), or their linked python 
-dependencies (in :file:`requirements.txt`), then Odoo.sh performs a backup automatically (flagged with type Update in the list), 
-as either the container will be changed by the installation of new pip packages, either the database itself will be 
-changed with the module update triggered afterwards. In these two cases, we are doing a backup as it may potentially 
+If you merge a commit updating the version of one or several modules (in :file:`__manifest__.py`), or their linked python
+dependencies (in :file:`requirements.txt`), then Odoo.sh performs a backup automatically (flagged with type Update in the list),
+as either the container will be changed by the installation of new pip packages, either the database itself will be
+changed with the module update triggered afterwards. In these two cases, we are doing a backup as it may potentially
 break things.
 
-If you merge a commit that only changes some code without the above-mentioned modifications, then no backup is done 
-by Odoo.sh, as neither the container nor the database is modified so the platform considers this safe enough. Of course, 
-as an extra precaution, you can make a backup manually before making big changes in your production sources in case 
-something goes wrong (those manual backups are available for about one week). To avoid abuse, we limit manual backups 
+If you merge a commit that only changes some code without the above-mentioned modifications, then no backup is done
+by Odoo.sh, as neither the container nor the database is modified so the platform considers this safe enough. Of course,
+as an extra precaution, you can make a backup manually before making big changes in your production sources in case
+something goes wrong (those manual backups are available for about one week). To avoid abuse, we limit manual backups
 to 5 per day.
 
 The *import database* feature accepts database archives in the format provided by:
@@ -277,13 +287,24 @@ The *import database* feature accepts database archives in the format provided b
 * the Odoo.sh backup download button of this *Backups* tab,
 * the Odoo.sh dump download button in the :ref:`Builds view <odoosh-gettingstarted-builds>`.
 
+.. _odoo_sh/upgrade:
+
+Upgrade
+-------
+
+Available for production and staging branches for valid projects.
+
+.. seealso::
+    :doc:`Upgrade documentation <../../upgrade>`
+
 .. _odoosh-gettingstarted-branches-tabs-settings:
 
 Settings
 --------
+
 Here you can find a couple of settings that only apply to the currently selected branch.
 
-.. image:: ./media/interface-branches-settings.jpg
+.. image:: branches/interface-branches-settings.jpg
    :align: center
 
 **Behaviour upon new commit**
@@ -300,7 +321,7 @@ back from staging to development will automatically be set to 'Do nothing'.
 
 Choose the modules to install automatically for your development builds.
 
-.. image:: ./media/interface-settings-modulesinstallation.png
+.. image:: branches/interface-settings-modulesinstallation.png
    :align: center
 
 * *Install only my modules* will install the modules of the branch only. This is the default option.
@@ -382,18 +403,19 @@ we are considering the feature if there is enough demand.
 In case the domain of your users email addresses use SPF (Sender Policy Framework) or DKIM
 (DomainKeys Identified Mail), don't forget to authorize Odoo as a sending host in your domain name
 settings to increase the deliverability of your outgoing emails.
-The configuration steps are explained in the :ref:`Discuss app documentation <discuss-email_servers-spf-compliant>`.
+The configuration steps are explained in the documentation about :ref:`SPF
+<email_communication/spf_compliant>` and :ref:`DKIM <email_communication/dkim_compliant>`.
 
 .. Warning::
   Forgetting to configure your SPF or DKIM to authorize Odoo as a sending host can lead to the
   delivery of your emails as spam in your contacts inbox.
 
-
 Shell commands
 ==============
+
 In the top right-hand corner of the view, different shell commands are available.
 
-.. image:: ./media/interface-branches-shellcommands.png
+.. image:: branches/interface-branches-shellcommands.png
    :align: center
 
 Each command can be copied in the clipboard to be used in a terminal,
@@ -403,6 +425,7 @@ such as ``<URL>``, ``<PATH>``, ...
 
 Clone
 -----
+
 Download the Git repository.
 
 .. code-block:: bash
@@ -418,6 +441,7 @@ The *run* button is not available for this command, as it is meant to be used on
 
 Fork
 ----
+
 Create a new branch based on the current branch.
 
 .. code-block:: bash
@@ -434,6 +458,7 @@ Uploads the new branch *feature-1* on your remote repository.
 
 Merge
 -----
+
 Merge the current branch in another branch.
 
 .. code-block:: bash
@@ -450,8 +475,10 @@ Uploads the changes you just added in the *master* branch on your remote reposit
 
 SSH
 ---
+
 Setup
 ~~~~~
+
 In order to use SSH, you have to set up your profile SSH public key (if it is not already done).
 To do so, follow these steps:
 
@@ -462,12 +489,12 @@ To do so, follow these steps:
    (only apply the step 1)
 #. Paste the copied content to your profile SSH keys and press "Add"
 
-   .. image:: ./media/SSH-key-pasting.png
+   .. image:: branches/SSH-key-pasting.png
       :align: center
 
 #. The key should appear below
 
-   .. image:: ./media/SSH-key-appearing.png
+   .. image:: branches/SSH-key-appearing.png
       :align: center
 
 Connection
@@ -481,7 +508,7 @@ To connect to your builds using ssh use the following command in a terminal:
 
 You will find a shortcut for this command into the SSH tab in the upper right corner.
 
-.. image:: ./media/SSH-panel.png
+.. image:: branches/SSH-panel.png
    :align: center
 
 Provided you have the :ref:`correct access rights <odoosh-gettingstarted-settings-collaborators>` on the project,
@@ -490,7 +517,6 @@ you'll be granted ssh access to the build.
 .. Note::
   Long running ssh connections are not guaranteed. Idle connections will be
   disconnected in order to free up resources.
-
 
 Submodule
 ---------

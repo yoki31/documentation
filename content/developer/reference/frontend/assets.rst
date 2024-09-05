@@ -47,14 +47,16 @@ associated with a checksum, which is injected into the page source. The checksum
 is then added to the url, which means that it is possible to safely set the cache
 headers to a long period.
 
+.. _reference/assets_bundle:
+
 Bundles
 =======
 
 Odoo assets are grouped by *bundles*. Each bundle (a *list of file paths*
-of specific types: `xml`, `js`, `css` or `scss`) is listed in the 
+of specific types: `xml`, `js`, `css` or `scss`) is listed in the
 :ref:`module manifest <reference/module/manifest>`. Files can be declared using
 `glob <https://en.wikipedia.org/wiki/Glob_(programming)>`_ syntax, meaning that
-you can declare several asset files using a single line. 
+you can declare several asset files using a single line.
 
 The bundles are defined in each module's :file:`__manifest__.py`,
 with a dedicated `assets` key which contains a dictionary. The dictionary maps
@@ -327,6 +329,8 @@ manifest counterparts.
 
 .. autoclass:: odoo.addons.base.models.ir_asset.IrAsset
 
+.. rst-class:: o-definition-list
+
 `name`
     Name of the asset record (for identification purpose).
 
@@ -363,4 +367,3 @@ manifest counterparts.
 `sequence` (default= `16`)
     Loading order of the asset records (ascending). A sequence lower than 16 means
     that the asset will be processed *before* the ones declared in the manifest.
-

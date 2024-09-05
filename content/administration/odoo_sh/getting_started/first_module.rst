@@ -1,14 +1,14 @@
-
-==================================
+=================
 Your first module
-==================================
+=================
 
 Overview
 ========
 
 This chapter helps you to create your first Odoo module and deploy it in your Odoo.sh project.
 
-This tutorial requires :ref:`you created a project on Odoo.sh <odoosh-gettingstarted-create>`, and you know your Github repository's URL.
+This tutorial requires :ref:`you created a project on Odoo.sh <odoosh-gettingstarted-create>`, and
+you know your Github repository's URL.
 
 Basic use of Git and Github is explained.
 
@@ -27,7 +27,7 @@ Create the development branch
 =============================
 
 From Odoo.sh
--------------
+------------
 
 In the branches view:
 
@@ -37,25 +37,23 @@ In the branches view:
 
   |pic1|  |pic2|
 
-.. |pic1| image:: ./media/firstmodule-development-+.png
+.. |pic1| image:: first_module/firstmodule-development-+.png
    :width: 45%
 
-.. |pic2| image:: ./media/firstmodule-development-fork.png
+.. |pic2| image:: first_module/firstmodule-development-fork.png
    :width: 45%
-
 
 Once the build created, you can access the editor and browse to the folder *~/src/user* to access
 to the code of your development branch.
 
-.. image:: ./media/firstmodule-development-editor.png
-  :align: center
+.. image:: first_module/firstmodule-development-editor.png
+   :align: center
 
-.. image:: ./media/firstmodule-development-editor-interface.png
-  :align: center
+.. image:: first_module/firstmodule-development-editor-interface.png
+   :align: center
 
 From your computer
 ------------------
-
 
 Clone your Github repository on your computer:
 
@@ -72,7 +70,6 @@ Create a new branch:
 
   $ git checkout -b feature-1 master
 
-
 Create the module structure
 ===========================
 
@@ -88,15 +85,15 @@ From the Odoo.sh editor, in a terminal:
 
   $ odoo-bin scaffold my_module ~/src/user/
 
-Or, from your computer, if you have an :ref:`installation of Odoo <setup/install/source>`:
+Or, from your computer, if you have an :doc:`installation of Odoo <../../on_premise/source>`:
 
 .. code-block:: bash
 
   $ ./odoo-bin scaffold my_module ~/src/odoo-addons/
 
 If you do not want to bother installing Odoo on your computer,
-you can also :download:`download this module structure template <media/my_module.zip>` in which you replace every occurrences of
-*my_module* to the name of your choice.
+you can also :download:`download this module structure template <first_module/my_module.zip>` in
+which you replace every occurrences of *my_module* to the name of your choice.
 
 The below structure will be generated:
 
@@ -119,11 +116,11 @@ The below structure will be generated:
       ├── templates.xml
       └── views.xml
 
-.. Warning::
+.. warning::
 
-  Do not use special characters other than the underscore ( _ ) for your module name, not even an hyphen ( - ).
-  This name is used for the Python classes of your module,
-  and having classes name with special characters other than the underscore is not valid in Python.
+   Do not use special characters other than the underscore ( _ ) for your module name, not even an
+   hyphen ( - ). This name is used for the Python classes of your module, and having classes name
+   with special characters other than the underscore is not valid in Python.
 
 Uncomment the content of the files:
 
@@ -149,7 +146,7 @@ Manually
 --------
 
 If you want to create your module structure manually,
-you can follow :doc:`Build an Odoo module </developer/howtos/backend>` to understand
+you can follow the :doc:`/developer/tutorials/getting_started` tutorial to understand
 the structure of a module and the content of each file.
 
 Push the development branch
@@ -180,8 +177,8 @@ The above command is explained in the section
 <odoosh-gettingstarted-online-editor-push>` of the
 :ref:`Online Editor <odoosh-gettingstarted-online-editor>`
 chapter.
-It includes the explanation regarding the fact you will be prompted to type your username and password,
-and what to do if you use the two-factor authentication.
+It includes the explanation regarding the fact you will be prompted to type your username and
+password, and what to do if you use the two-factor authentication.
 
 Or, from your computer terminal:
 
@@ -201,26 +198,26 @@ Test your module
 
 Your branch should appear in your development branches in your project.
 
-.. image:: ./media/firstmodule-test-branch.png
+.. image:: first_module/firstmodule-test-branch.png
   :align: center
 
 In the branches view of your project,
 you can click on your branch name in the left navigation panel to access its history.
 
-.. image:: ./media/firstmodule-test-branch-history.png
+.. image:: first_module/firstmodule-test-branch-history.png
   :align: center
 
 You can see here the changes you just pushed, including the comment you set.
 Once the database ready, you can access it by clicking the *Connect* button.
 
-.. image:: ./media/firstmodule-test-database.png
+.. image:: first_module/firstmodule-test-database.png
   :align: center
 
 If your Odoo.sh project is configured to install your module automatically,
-you will directly see it amongst the database apps. Otherwise, it will be available in the apps to install.
+you will directly see it amongst the database apps. Otherwise, it will be available in the apps to
+install.
 
 You can then play around with your module, create new records and test your features and buttons.
-
 
 Test with the production data
 =============================
@@ -232,23 +229,24 @@ you can test it with the production data using a staging branch.
 
 You can either:
 
-* Make your development branch a staging branch, by drag and dropping it onto the *staging* section title.
+* Make your development branch a staging branch, by drag and dropping it onto the *staging* section
+  title.
 
-  .. image:: ./media/firstmodule-test-devtostaging.png
-    :align: center
+  .. image:: first_module/firstmodule-test-devtostaging.png
+     :align: center
 
 * Merge it in an existing staging branch, by drag and dropping it onto the given staging branch.
 
-  .. image:: ./media/firstmodule-test-devinstaging.png
-    :align: center
+  .. image:: first_module/firstmodule-test-devinstaging.png
+     :align: center
 
 You can also use the :code:`git merge` command to merge your branches.
 
-This will create a new staging build, which will duplicate the production database and make it run using a server
-updated with your latest changes of your branch.
+This will create a new staging build, which will duplicate the production database and make it run
+using a server updated with your latest changes of your branch.
 
-.. image:: ./media/firstmodule-test-mergedinstaging.png
-  :align: center
+.. image:: first_module/firstmodule-test-mergedinstaging.png
+   :align: center
 
 Once the database ready, you can access it using the *Connect* button.
 
@@ -257,22 +255,24 @@ Once the database ready, you can access it using the *Connect* button.
 Install your module
 -------------------
 
-Your module will not be installed automatically, you have to install it from the apps menu.
-Indeed, the purpose of the staging build is to test the behavior of your changes as it would be on your production,
-and on your production you would not like your module to be installed automatically, but on demand.
+Your module will not be installed automatically, you have to install it from the apps menu. Indeed,
+the purpose of the staging build is to test the behavior of your changes as it would be on your
+production, and on your production you would not like your module to be installed automatically, but
+on demand.
 
-Your module may not appear directly in your apps to install either, you need to update your apps list first:
+Your module may not appear directly in your apps to install either, you need to update your apps
+list first:
 
 * Activate the :ref:`developer mode <developer-mode>`
 * in the apps menu, click the *Update Apps List* button,
 * in the dialog that appears, click the *Update* button.
 
-  .. image:: ./media/firstmodule-test-updateappslist.png
+  .. image:: first_module/firstmodule-test-updateappslist.png
     :align: center
 
 Your module will then appear in the list of available apps.
 
-.. image:: ./media/firstmodule-test-mymoduleinapps.png
+.. image:: first_module/firstmodule-test-mymoduleinapps.png
   :align: center
 
 Deploy in production
@@ -283,7 +283,7 @@ and believe it is ready for production, you can merge your branch in the product
 
 Drag and drop your staging branch on the production branch.
 
-.. image:: ./media/firstmodule-test-mergeinproduction.png
+.. image:: first_module/firstmodule-test-mergeinproduction.png
   :align: center
 
 You can also use the :code:`git merge` command to merge your branches.
@@ -291,7 +291,7 @@ You can also use the :code:`git merge` command to merge your branches.
 This will merge the latest changes of your staging branch in the production branch,
 and update your production server with these latest changes.
 
-.. image:: ./media/firstmodule-test-mergedinproduction.png
+.. image:: first_module/firstmodule-test-mergedinproduction.png
   :align: center
 
 Once the database ready, you can access it using the *Connect* button.
@@ -307,14 +307,16 @@ you have to install it manually as explained in the
 Add a change
 ============
 
-This section explains how to add a change in your module by adding a new field in a model and deploy it.
+This section explains how to add a change in your module by adding a new field in a model and deploy
+it.
 
 From the Odoo.sh editor,
  * browse to your module folder *~/src/user/my_module*,
  * then, open the file *models/models.py*.
 
 Or, from your computer,
- * use the file browser of your choice to browse to your module folder *~/src/odoo-addons/my_module*,
+ * use the file browser of your choice to browse to your module folder
+   *~/src/odoo-addons/my_module*,
  * then, open the file *models/models.py* using the editor of your choice,
    such as *Atom*, *Sublime Text*, *PyCharm*, *vim*, ...
 
@@ -350,8 +352,8 @@ and modify a view stored in database.
 In order to be applied in existing databases, such as your production database,
 these changes requires the module to be updated.
 
-If you would like the update to be performed automatically by the Odoo.sh platform when you push your changes,
-increase your module version in its manifest.
+If you would like the update to be performed automatically by the Odoo.sh platform when you push
+your changes, increase your module version in its manifest.
 
 Open the module manifest *__manifest__.py*.
 
@@ -367,7 +369,8 @@ with
 
   'version': '0.2',
 
-The platform will detect the change of version and trigger the update of the module upon the new revision deployment.
+The platform will detect the change of version and trigger the update of the module upon the new
+revision deployment.
 
 Browse to your Git folder.
 
@@ -411,13 +414,13 @@ Or, from your computer terminal:
 
 The platform will then create a new build for the branch *feature-1*.
 
-.. image:: ./media/firstmodule-test-addachange-build.png
-  :align: center
+.. image:: first_module/firstmodule-test-addachange-build.png
+   :align: center
 
-Once you tested your changes, you can merge your changes in the production branch, for instance by drag-and-dropping the
-branch on the production branch in the Odoo.sh interface. As you increased the module version in the manifest,
-the platform will update the module automatically and your new field will be directly available.
-Otherwise you can manually update the module within the apps list.
+Once you tested your changes, you can merge your changes in the production branch, for instance by
+drag-and-dropping the branch on the production branch in the Odoo.sh interface. As you increased the
+module version in the manifest, the platform will update the module automatically and your new field
+will be directly available. Otherwise you can manually update the module within the apps list.
 
 Use an external Python library
 ==============================
@@ -425,10 +428,18 @@ Use an external Python library
 If you would like to use an external Python library which is not installed by default,
 you can define a *requirements.txt* file listing the external libraries your modules depends on.
 
+.. note::
+   - It is not possible to install or upgrade system packages on an Odoo.sh database (e.g., apt
+     packages). However, under specific conditions, packages can be considered for installation.
+     This also applies to **Python modules** requiring system packages for their compilation, and
+     **third-party Odoo modules**.
+   - **PostgreSQL extensions** are not supported on Odoo.sh.
+   - For more information, consult our `FAQ <https://www.odoo.sh/faq#install_dependencies>`_.
+
 The platform will use this file to automatically install the Python libraries your project needs.
 
-The feature is explained in this section by using the `Unidecode library <https://pypi.python.org/pypi/Unidecode>`_ in
-your module.
+The feature is explained in this section by using the `Unidecode library
+<https://pypi.python.org/pypi/Unidecode>`_ in your module.
 
 Create a file *requirements.txt* in the root folder of your repository
 
@@ -442,8 +453,8 @@ Add
 
   unidecode
 
-Then use the library in your module, for instance to remove accents from characters in the name field of your
-model.
+Then use the library in your module, for instance to remove accents from characters in the name
+field of your model.
 
 Open the file *models/models.py*.
 

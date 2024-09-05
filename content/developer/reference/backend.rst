@@ -1,8 +1,8 @@
 :nosearch:
 
-=======
-Backend
-=======
+================
+Python framework
+================
 
 .. toctree::
     :titlesonly:
@@ -14,6 +14,8 @@ Backend
     backend/module
     backend/reports
     backend/security
+    backend/performance
     backend/testing
     backend/http
     backend/mixins
+    backend/standard_modules

@@ -142,6 +142,8 @@ variables for various data points:
 
 .. warning:: ``$as`` will be replaced by the name passed to ``t-as``
 
+.. rst-class:: o-definition-list
+
 :samp:`{$as}_all` (deprecated)
     the object being iterated over
 
@@ -171,7 +173,7 @@ variables for various data points:
     index
 
 These extra variables provided and all new variables created into the
-``foreach`` are only available in the scope of the``foreach``. If the
+``foreach`` are only available in the scope of the ``foreach``. If the
 variable exists outside the context of the ``foreach``, the value is copied
 at the end of the foreach into the global context.
 
@@ -198,6 +200,8 @@ QWeb can compute attributes on-the-fly and set the result of the computation
 on the output node. This is done via the ``t-att`` (attribute) directive which
 exists in 3 different forms:
 
+.. rst-class:: o-definition-list
+
 :samp:`t-att-{$name}`
     an attribute called ``$name`` is created, the attribute value is evaluated
     and the result is set as the attribute's value::
@@ -223,6 +227,11 @@ exists in 3 different forms:
         <li class="row even">1</li>
         <li class="row odd">2</li>
         <li class="row even">3</li>
+
+    .. tip::
+       There are two equivalent syntaxes for format strings: ``"plain_text {{code}}"`` (aka
+       jinja-style) and ``"plain_text #{code}"`` (aka ruby-style).
+
 :samp:`t-att=mapping`
     if the parameter is a mapping, each (key, value) pair generates a new
     attribute and its value::
@@ -248,9 +257,8 @@ exists in 3 different forms:
 setting variables
 =================
 
-QWeb allows creating variables from within the template, to memoize a
-computation (to use it multiple times), give a piece of data a clearer name,
-...
+QWeb allows creating variables from within the template, to memoize a computation (to use it
+multiple times), give a piece of data a clearer name, ...
 
 This is done via the ``set`` directive, which takes the name of the variable
 to create. The value to set can be provided in two ways:
@@ -295,7 +303,7 @@ the call above will be rendered as ``<p/>`` (no content), but::
 
 will be rendered as ``<p>1</p>``.
 
-However this has the problem of being visible from outside the ``t-call``.
+However, this has the problem of being visible from outside the ``t-call``.
 Alternatively, content set in the body of the ``call`` directive will be
 evaluated *before* calling the sub-template, and can alter a local context::
 
@@ -365,10 +373,10 @@ templates:
   will not strip that information from safe content.
 
 Creating safe content using :class:`~markupsafe.Markup`
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See the official documentation for explanations, but the big advantage of
-:class:`~markupsafe.Markup` is that it's a very rich type overrinding
+:class:`~markupsafe.Markup` is that it's a very rich type overriding
 :class:`str` operations to *automatically escape parameters*.
 
 This means that it's easy to create *safe* html snippets by using
@@ -437,6 +445,8 @@ to a normal string to "strip" the safety flag e.g. `str(content)` in Python and
 Deprecated output directives
 ----------------------------
 
+.. rst-class:: o-definition-list
+
 ``esc``
     An alias for ``out``, would originally HTML-escape its input. Not yet
     formally deprecated as the only difference between ``out`` and ``esc`` is
@@ -460,12 +470,12 @@ Exclusive directives
 --------------------
 
 Asset bundles
-'''''''''''''
+~~~~~~~~~~~~~
 
 .. todo:: have fme write these up because I've no idea how they work
 
 "smart records" fields formatting
-'''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``t-field`` directive can only be used when performing field access
 (``a.b``) on a "smart" record (result of the ``browse`` method). It is able
@@ -477,6 +487,8 @@ is ``widget``, other options are field- or widget-dependent.
 
 Debugging
 ---------
+
+.. rst-class:: o-definition-list
 
 ``t-debug``
     invokes a debugger using PDB's ``set_trace`` API. The parameter should
@@ -490,7 +502,7 @@ Helpers
 -------
 
 Request-based
-'''''''''''''
+~~~~~~~~~~~~~
 
 Most Python-side uses of QWeb are in controllers (and during HTTP requests),
 in which case templates stored in the database (as
@@ -507,7 +519,7 @@ This automatically creates a :class:`~odoo.http.Response` object which can
 be returned from the controller (or further customized to suit).
 
 View-based
-''''''''''
+~~~~~~~~~~
 
 At a deeper level than the previous helper is the ``render`` method on
 ``ir.ui.view``:
@@ -518,6 +530,8 @@ At a deeper level than the previous helper is the ``render`` method on
     Templates are automatically loaded from ``ir.ui.view`` records.
 
     Sets up a number of default values in the rendering context:
+
+    .. rst-class:: o-definition-list
 
     ``request``
         the current :class:`~odoo.http.WebRequest` object, if any
@@ -561,7 +575,7 @@ Exclusive directives
 --------------------
 
 Defining templates
-''''''''''''''''''
+~~~~~~~~~~~~~~~~~~
 
 The ``t-name`` directive can only be placed at the top-level of a template
 file (direct children to the document root)::
@@ -580,7 +594,7 @@ are related (e.g. called sub-templates) it is customary to use dot-separated
 names to indicate hierarchical relationships.
 
 Template inheritance
-''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~
 
 Template inheritance is used to either:
  - Alter existing templates in-place, e.g. to add information to templates
@@ -617,7 +631,7 @@ Extension inheritance (in-place transformation)::
     </t>
 
 Old inheritance mechanism (deprecated)
-''''''''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Template inheritance is performed via the ``t-extend`` directive which takes
 the name of the template to alter as parameter.
@@ -637,6 +651,8 @@ sub-directives::
 The ``t-jquery`` directives takes a `CSS selector`_. This selector is used
 on the extended template to select *context nodes* to which the specified
 ``t-operation`` is applied:
+
+.. rst-class:: o-definition-list
 
 ``append``
     the node's body is appended at the end of the context node (after the
@@ -669,6 +685,8 @@ debugging
 ---------
 
 The javascript QWeb implementation provides a few debugging hooks:
+
+.. rst-class:: o-definition-list
 
 ``t-log``
     takes an expression parameter, evaluates the expression during rendering

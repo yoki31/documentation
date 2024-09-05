@@ -1,9 +1,8 @@
 :nosearch:
 
-===============
-Inventory & Mrp
-===============
-
+============
+Supply Chain
+============
 
 .. toctree::
 

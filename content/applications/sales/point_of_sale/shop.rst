@@ -1,15 +1,13 @@
 :nosearch:
 
 =============
-Shop Features
+Shop features
 =============
 
 .. toctree::
    :titlesonly:
 
-   shop/invoice
-   shop/cash_control
+   shop/sales_order
    shop/barcode
-   shop/multicashiers
-   shop/reprint
-   shop/cash_rounding
+   shop/serial_numbers
+   shop/ship_later

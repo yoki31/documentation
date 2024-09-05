@@ -23,7 +23,7 @@ The following example shows how to create a new automatic alert to send satisfac
 customers, by email, after one month of subscription. To do so, go to :menuselection:`Subscriptions
 --> Configuration --> Alerts`, and create a new alert.
 
-.. image:: media/create-a-new-automatic-alert.png
+.. image:: automatic_alerts/create-a-new-automatic-alert.png
   :align: center
   :alt: New automatic alert in Odoo Subscriptions
 
@@ -51,11 +51,16 @@ customers, by email, after one month of subscription. To do so, go to :menuselec
       *Trigger date* and *Delay after trigger* need to be specified. And because the *Send an email
       to the customer* action was adopted, an *Email template* can be chosen.
 
-As a result, this alert will send a rating survey after one month, to the customers who have
-purchased that specific product. The survey will appear in the chatter of your respective
-subscription.
+   .. note::
+      Sending a SMS text message in Odoo requires In-App Purchase (IAP) credit or tokens. For more
+      information on :abbr:`IAP (In-App Purchase)`, visit
+      :doc:`../../../essentials/in_app_purchase`. For more information on sending SMS messages,
+      visit :doc:`../../../marketing/sms_marketing/essentials/sms_essentials`.
 
-.. image:: media/rating-satisfaction-survey.png
+As a result, this alert sends a rating survey after one month, to the customers who have purchased
+that specific product. The survey appears in the chatter of your respective subscription.
+
+.. image:: automatic_alerts/rating-satisfaction-survey.png
   :align: center
   :alt: Satisfaction survey in Odoo Subscriptions
 
@@ -64,7 +69,7 @@ Modify an existing automatic alert
 
 By default, Odoo suggests you an automatic alert called *Take action on less satisfied clients*.
 
-.. image:: media/modify-an-existing-automatic-alert.png
+.. image:: automatic_alerts/modify-an-existing-automatic-alert.png
   :align: center
   :alt: Modify an existing automatic alert in Odoo Subscriptions
 
@@ -84,3 +89,4 @@ retention rates very high.
   - :doc:`../../subscriptions/configuration/subscription_products`
   - :doc:`../../subscriptions/sales_flow/create_a_quotation`
   - :doc:`../../subscriptions/reporting/subscription_reports`
+  - :doc:`../../../essentials/in_app_purchase`

@@ -10,9 +10,8 @@ Warehouse Management
 
    management/products
    management/warehouses
-   management/replenishment_strategies
-   management/delivery
-   management/incoming
+   management/inventory_adjustments
+   management/shipments_deliveries
    management/misc
    management/planning
    management/lots_serial_numbers
